@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 1.2 - Solutions and Initial Value Problems</title>
+
+		<meta
+			name="description"
+			content="Introduction to Solutions and Initial Value Problems"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 1.2</h2>
+					<h3>Solutions and Initial Value Problems</h3>
+				</section>
+
+				<section>
+					<h4>n-th Order Ordinary Differential Equation</h4>
+					<p>An nth-order ODE is an equality relating the independent variable to the nth derivative (and usually lower-order derivatives as well) of the dependent variable.</p>
+					<p>General form:</p>
+					\[ F\left(x, y, \frac{dy}{dx}, \dots, \frac{d^{n}y}{dx^{n}}\right) = 0 \]
+					<p><small>where \(F\) is a function that depends on \(x\), \(y\), and the derivatives of \(y\) up to order \(n\).</small></p>
+				</section>
+
+				<section>
+					<h3>Explicit Solution</h3>
+					<p><strong>Definition 1:</strong> A function \( \phi(x) \) that when substituted for \( y \) in the differential equation satisfies the equation for all \( x \) is called an <strong>explicit solution</strong> to the equation.</p>
+					<div style="background: #222; padding: 15px; border-radius: 8px; margin-top: 20px;">
+						<p><strong>Example:</strong> \( \phi(x) = x^{2} - x^{-1} \) is an explicit solution to the linear equation:</p>
+						\[ \frac{d^{2}y}{dx^{2}} - \frac{2}{x^{2}}y = 0 \]
+					</div>
+				</section>
+
+				<section>
+					<h3>Implicit Solution</h3>
+					<p><strong>Definition 2:</strong> A relation \( G(x, y) = 0 \) is said to be an <strong>implicit solution</strong> to the differential equation if it defines one or more explicit solutions.</p>
+					<div style="background: #222; padding: 15px; border-radius: 8px; margin-top: 20px;">
+						<p><strong>Example:</strong> \( 4x^{2} - y^{2} = C \) is an implicit solution to:</p>
+						\[ y\frac{dy}{dx} - 4x = 0 \]
+					</div>
+				</section>
+
+				<section>
+					<h3>Initial Value Problem (IVP)</h3>
+					<p style="font-size: 0.7em;">
+                        <strong>Definition 3:</strong> Find a solution to the differential equation that satisfies at \( x_{0} \) the \( n \) initial conditions:
+                    </p>
+                    <small>
+                        \[ y(x_{0}) = y_{0}, \]
+                        \[ \frac{dy}{dx}(x_{0}) = y_{1}, \]
+                        \[ \dots \]
+                        \[ \frac{d^{n-1}y}{dx^{n-1}}(x_{0}) = y_{n-1} \]
+                    </small>
+					<p><small>where \( x_{0} \) and \( y_{0}, y_{1}, \dots, y_{n-1} \) are given constants.</small></p>
+				</section>
+
+				<section>
+					<h3>Initial Value Problem Example</h3>
+					<p>Show that \( \phi(x) = \sin x - \cos x \) is a solution to the initial value problem:</p>
+					\[ \frac{d^{2}y}{dx^{2}} + y = 0 \]
+					<p>Subject to the initial conditions:</p>
+					\[ y(0) = -1, \quad \frac{dy}{dx}(0) = 1 \]
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

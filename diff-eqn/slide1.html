@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 1.1 - Background</title>
+
+		<meta
+			name="description"
+			content="Introduction to Differential Equations"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/sky.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 1.1</h2>
+					<h3>Background</h3>
+					<p>Introduction to Differential Equations</p>
+				</section>
+
+				<section>
+					<h3>What is a Differential Equation?</h3>
+					<p>In the sciences and engineering, mathematical models are developed to aid in the understanding of physical phenomena.</p>
+					<p>These models often yield an equation that contains some derivatives of an unknown function, which is called a <strong>differential equation</strong>.</p>
+				</section>
+
+				<section 
+					data-background="assets/apple.png"
+					data-background-opacity="0.12"
+				>
+					<h3>Example 1: Free Fall</h3>
+					<p>Applying Newton's second law to a falling object leads to the equation:</p>
+					\[ m\frac{d^{2}h}{dt^{2}} = -mg \]
+					<p><small>where \(m\) is mass, \(h\) is height, and \(g\) is gravitational acceleration.</small></p>
+				</section>
+
+				<section 
+					data-background="assets/apple.png"
+					data-background-opacity="0.12"
+				>
+					<h3>Solving the Free Fall Equation</h3>
+					<p>Dividing by \(m\) and integrating twice with respect to \(t\) yields:</p>
+					<small>
+						\[ \frac{d^{2}h}{dt^{2}} = -g \]
+						\[ \frac{dh}{dt} = -gt + c_{1} \]
+						\[ h(t) = \frac{-gt^{2}}{2} + c_{1}t + c_{2} \]
+					</small>
+					<p><small>The constants of integration, \(c_{1}\) and \(c_{2}\), are determined by the object's initial height and velocity.</small></p>
+				</section>
+
+				<section
+					data-background="assets/decay.png"
+					data-background-opacity="0.12"
+				>
+					<h3>Example 2: Radioactive Decay</h3>
+					<p>The rate of decay is proportional to the amount of radioactive substance present.</p>
+					\[ \frac{dA}{dt} = -kA \quad (k > 0) \]
+					<p>Integrating this equation gives the formula for the amount of substance:</p>
+					\[ A(t) = Ce^{-kt} \]
+				</section>
+
+				<section>
+					<section>
+						<h3>Other Applications</h3>
+						<ul style="font-size: 0.8em;">
+							<li><strong>Banking:</strong> \( \frac{dP}{dt} = \frac{r}{100}P \)</li>
+							<li><strong>Electric Circuits (RLC):</strong> \( L\frac{d^{2}q}{dt^{2}} + R\frac{dq}{dt} + \frac{1}{C}q = E(t) \)</li>
+							<img src="assets/circuit.png" width="400" sizes="" alt="circuit">
+							<li><strong>Wave Propagation:</strong> \( \frac{\partial^{2}u}{\partial t^{2}} - c^{2}\frac{\partial^{2}u}{\partial x^{2}} = 0 \)</li>
+						</ul>
+						<p><small><em>(Press Down Arrow for Engineering Applications)</em></small></p>
+					</section>
+
+					<section
+						data-background="assets/packaging.jpg"
+						data-background-opacity="0.08"
+					>
+						<h4>Modern Engineering Applications</h4>
+						<ul style="font-size: 0.6em;">
+							<li style="margin-bottom: 20px;">
+								<strong>Packaging Engineering:</strong> Modeling moisture or gas diffusion through polymer packaging materials using Fick's Second Law: 
+								\[ \frac{\partial C}{\partial t} = D \frac{\partial^{2} C}{\partial x^{2}} \]
+								<small>where \(C\) is concentration and \(D\) is the diffusion coefficient.</small>
+							</li>
+							<li>
+								<strong>Software Engineering:</strong> Predicting software reliability and bug discovery over time using the Goel-Okumoto non-homogeneous Poisson process (NHPP) model:
+								\[ \frac{d m(t)}{dt} = a b e^{-bt} \]
+								<small>where \(m(t)\) is the expected number of defects found by time \(t\).</small>
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h3>Terminology</h3>
+					<p>If an equation involves the derivative of one variable with respect to another:</p>
+					<ul>
+						<li>The former is the <strong>dependent variable</strong>.</li>
+						<li>The latter is the <strong>independent variable</strong>.</li>
+					</ul>
+					<br>
+					<p>In \( \frac{d^{2}x}{dt^{2}} + a\frac{dx}{dt} + kx = 0 \), \(t\) is independent and \(x\) is dependent.</p>
+				</section>
+
+				<section>
+					<h3>ODE vs. PDE</h3>
+					<ul>
+						<li style="margin-bottom: 15px;"><strong>Ordinary Differential Equation (ODE):</strong> Involves only ordinary derivatives with respect to a single independent variable.</li>
+						<li><strong>Partial Differential Equation (PDE):</strong> Involves partial derivatives with respect to more than one independent variable.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Order & Linearity</h3>
+					<p><strong>Order:</strong> The order of the highest-order derivative present in the equation.</p>
+					<p><strong>Linearity:</strong> An equation is linear if the dependent variable and its derivatives appear in additive combinations of their first powers only.</p>
+					\[ a_{n}(x)\frac{d^{n}y}{dx^{n}} + \dots + a_{1}(x)\frac{dy}{dx} + a_{0}(x)y = F(x) \]
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 4.1 - Antiderivatives and Indefinite Integration</title>
+
+		<meta
+			name="description"
+			content="Antiderivatives and Indefinite Integration"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 4.1</h2>
+					<h3>Antiderivatives and Indefinite Integration</h3>
+					<p><small>Part 1: Basic Rules and Algebraic Methods</small></p>
+				</section>
+
+				<section>
+					<h3>What is an Antiderivative?</h3>
+					<p>Differentiation is the process of finding a derivative. <strong>Antidifferentiation</strong> is the reverse: finding the original function when you are given the derivative.</p>
+					<p>A function \(F\) is an antiderivative of \(f\) on an interval \(I\) when \(F^{\prime}(x)=f(x)\) for all \(x\) in \(I\).</p>
+				</section>
+
+				<section>
+					<h3>The Constant of Integration (+C)</h3>
+					<p>Because the derivative of any constant is zero, a function has an infinite number of antiderivatives.</p>
+					<p style="font-size: 0.8em; color: #aaa;">For example, if \(F(x) = x^2\), then \(F'(x) = 2x\).<br> But if \(G(x) = x^2 + 5\), then \(G'(x) = 2x\) as well.</p>
+					
+					<div style="background: #222; padding: 15px; border-radius: 8px; margin-top: 20px;">
+						<p><strong>Representation of Antiderivatives (Theorem 4.1):</strong></p>
+						<p style="font-size: 0.8em;">If \(F\) is an antiderivative of \(f\) on an interval \(I\), then \(G\) is an antiderivative of \(f\) on the interval \(I\) if and only if \(G\) is of the form \(G(x)=F(x)+C\) for all \(x\) in \(I\), where \(C\) is a constant.</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>Indefinite Integral Notation</h3>
+					<p>The operation of finding all solutions of this equation is called antidifferentiation (or indefinite integration) and is denoted by an integral sign \(\int\).</p>
+					\[ y=\int f(x)dx=F(x)+C \]
+					<ul style="font-size: 0.8em; text-align: left;">
+						<li><strong>\(\int\)</strong> : The integral sign indicating the operation.</li>
+						<li><strong>\(f(x)\)</strong> : The Integrand (the function being integrated).</li>
+						<li><strong>\(dx\)</strong> : Identifies \(x\) as the variable of integration.</li>
+						<li><strong>\(C\)</strong> : The constant of integration.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Basic Integration Rules</h3>
+					<p style="font-size: 0.6em;">The inverse nature of integration and differentiation means we can derive integration rules directly from differentiation rules.</p>
+					<ul style="font-size: 0.6em; margin-bottom: 20px;">
+						<li><strong>Constant Rule:</strong> \(\int k~dx=kx+C\)</li>
+						<li><strong>Constant Multiple Rule:</strong> \(\int kf(x)dx=k\int f(x)dx\)</li>
+						<li><strong>Sum & Difference Rule:</strong> \(\int [f(x)\pm g(x)]dx=\int f(x)dx\pm\int g(x)dx\)</li>
+					</ul>
+					<div style="border: 2px dashed #fff; padding: 15px; font-size: 0.8em;">
+						<p><strong>The Power Rule:</strong></p>
+						\[ \int x^{n}dx=\frac{x^{n+1}}{n+1}+C, \quad (n \neq -1) \]
+						<p><small><em>(Note: We add 1 to the power, then divide by the new power.)</em></small></p>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Step-by-Step Example 1</h3>
+						<p>Evaluate the indefinite integral: \(\int 3x~dx\)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Constant Multiple Rule:</strong> Factor the 3 outside the integral.<br>
+							\(= 3\int x^{1}dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Power Rule (\(n=1\)):</strong> Add 1 to the exponent, then divide by the new exponent.<br>
+							\(= 3\left(\frac{x^{1+1}}{1+1}\right) + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong><br>
+							\(= 3\left(\frac{x^{2}}{2}\right) + C\) <br><br>
+                            <span class="fragment">
+                                <strong >Final Answer:</strong> \(= \frac{3}{2}x^{2} + C\)
+                            </span>
+                            </li>
+						</ol>
+						<p><small><em>(Press Down Arrow for More Examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Step-by-Step Example 2</h3>
+						<p>Evaluate the indefinite integral: \(\int \frac{1}{x^{3}}dx\)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite the Integrand:</strong> Bring \(x\) to the numerator by making the exponent negative. This prepares it for the Power Rule.<br>
+							\(= \int x^{-3}dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Power Rule (\(n=-3\)):</strong> Add 1 to the exponent (\(-3 + 1 = -2\)) and divide by \(-2\).<br>
+							\(= \frac{x^{-2}}{-2} + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Move the negative exponent back to the denominator for a cleaner final answer.<br><br>
+                            <span class="fragment">
+                                <strong>Final Answer:</strong> \(= -\frac{1}{2x^{2}} + C\)
+                            </span>
+                            </li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Step-by-Step Example 3</h3>
+						<p>Evaluate the indefinite integral: \(\int \sqrt{x}dx\)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite the Integrand:</strong> Convert the radical into a fractional exponent.<br>
+							\(= \int x^{1/2}dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Power Rule (\(n=1/2\)):</strong> Add 1 to the exponent (\(1/2 + 2/2 = 3/2\)) and divide by \(3/2\).<br>
+							\(= \frac{x^{3/2}}{3/2} + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Dividing by a fraction is the same as multiplying by its reciprocal.<br><br>
+							<span class="fragment">
+<strong>Final Answer:</strong> \(= \frac{2}{3}x^{3/2} + C\)
+                            </span>
+                                </li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Step-by-Step Example 4</h3>
+						<p>Evaluate: \(\int (3x^{4}-5x^{2}+x)dx\)</p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Sum/Difference Rule:</strong> Integrate each term separately.<br>
+							\(= \int 3x^{4}dx - \int 5x^{2}dx + \int x dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Constant Multiple & Power Rules:</strong><br>
+							\(= 3\left(\frac{x^{5}}{5}\right) - 5\left(\frac{x^{3}}{3}\right) + \frac{x^{2}}{2} + C\) <br>
+							<em>(Note: We only need to write '+ C' once at the very end).</em></li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Clean up the coefficients.<br><br>
+                            <span class="fragment">
+                                <strong>Final Answer:</strong> \(= \frac{3}{5}x^{5} - \frac{5}{3}x^{3} + \frac{1}{2}x^{2} + C\)
+                            </span>
+							</li>
+						</ol>
+					</section>
+
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Step-by-Step Example 5</h3>
+						<p>Evaluate: \(\int \frac{x+1}{\sqrt{x}}dx\)</p>
+						<p class="fragment" style="color: #ff6666; font-size: 0.7em;"><em>Warning: There is no "Quotient Rule" for integration. You cannot integrate the top and bottom separately!</em></p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite by Splitting the Fraction:</strong> Divide each term in the numerator by the denominator (\(\sqrt{x}\) is \(x^{1/2}\)).<br>
+							\(= \int \left(\frac{x}{x^{1/2}} + \frac{1}{x^{1/2}}\right)dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify Exponents:</strong> Use exponent rules (subtracting powers for division).<br>
+							\(= \int \left(x^{1/2} + x^{-1/2}\right)dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate using the Power Rule:</strong> Add 1 to each exponent and divide.<br>
+							\(= \frac{x^{3/2}}{3/2} + \frac{x^{1/2}}{1/2} + C\)</li>
+
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Multiply by the reciprocals.<br><br>
+                            <span class="fragment">
+                                <strong>Final Answer:</strong> \(= \frac{2}{3}x^{3/2} + 2x^{1/2} + C\)
+                            </span>
+							</li>
+						</ol>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
