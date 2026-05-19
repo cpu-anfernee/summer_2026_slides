@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 4.5 - Integration by Substitution</title>
+
+		<meta
+			name="description"
+			content="Pattern Recognition and Change of Variables"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 4.5</h2>
+					<h3>Integration by Substitution</h3>
+					<p>Pattern Recognition & Change of Variables</p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Part 1: Pattern Recognition</h3>
+						<p style="font-size: 0.8em;">In this technique, we perform the <strong>Chain Rule in reverse</strong>. We look for an integral that fits the following pattern:</p>
+						\[ \int f(g(x)) \cdot g^{\prime}(x) dx = F(g(x)) + C \]
+						<ul style="font-size: 0.8em; margin-top: 20px;">
+							<li><strong>\( g(x) \)</strong> is the "inner" function.</li>
+							<li><strong>\( g^{\prime}(x) \)</strong> is the exact derivative of the inner function, multiplying the whole expression.</li>
+							<li><strong>\( F \)</strong> is the antiderivative of the "outer" function \( f \).</li>
+						</ul>
+						<p><small><em>(Press Down Arrow for 6 Examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Pattern Recognition: Example 1</h3>
+						<p>Evaluate: \( \int 2x(x^2 + 1)^4 dx \)</p>
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify the Pattern:</strong> 
+								<br>Inner function \( g(x) = x^2 + 1 \).
+								<br>Outer function is \( (\text{something})^4 \).
+								<br>Derivative of inner is \( g^{\prime}(x) = 2x \).
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Verify:</strong> We have exactly \( g^{\prime}(x) \) sitting outside! The pattern is perfect.</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate the Outer Function:</strong> Use the power rule on \( (\text{something})^4 \).
+								<br> \( \int u^4 du = \frac{u^5}{5} \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = \frac{1}{5}(x^2 + 1)^5 + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Pattern Recognition: Example 2</h3>
+						<p>Evaluate: \( \int (3x^2 + 2)(x^3 + 2x)^5 dx \)</p>
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify the Pattern:</strong> 
+								<br>Inner function \( g(x) = x^3 + 2x \).
+								<br>Derivative \( g^{\prime}(x) = 3x^2 + 2 \).
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Verify:</strong> The expression \( (3x^2 + 2) \) is perfectly matched.</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate the Outer Function:</strong> Apply the power rule to the exponent 5.
+								<br> \( \int (\text{inner})^5 \cdot (\text{deriv}) dx = \frac{(\text{inner})^6}{6} \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = \frac{1}{6}(x^3 + 2x)^6 + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Pattern Recognition: Example 3</h3>
+						<p>Evaluate: \( \int \frac{4x^3 + 1}{(x^4 + x)^2} dx \)</p>
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite:</strong> Bring the denominator up using a negative exponent.
+								<br> \( \int (4x^3 + 1)(x^4 + x)^{-2} dx \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify the Pattern:</strong> 
+								<br>Inner \( g(x) = x^4 + x \). 
+								<br>Derivative \( g^{\prime}(x) = 4x^3 + 1 \). Perfect match.
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong> Add 1 to the power (-2 + 1 = -1) and divide by -1.
+								<br> \( = \frac{(x^4 + x)^{-1}}{-1} + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = -\frac{1}{x^4 + x} + C \)</li>
+						</ol>
+					</section>
+
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Pattern Recognition: Example 4 (Off by a Constant)</h3>
+						<p>Evaluate: \( \int x^2(x^3 - 5)^7 dx \)</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em;"><em>Notice: We have the right variables, but the wrong constant number!</em></p>
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify Inner & Derivative:</strong> \( g(x) = x^3 - 5 \), so \( g^{\prime}(x) = 3x^2 \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Adjust the Constant:</strong> We only have \( x^2 \). We need \( 3x^2 \).
+								<br>Multiply inside by 3, and outside by \( \frac{1}{3} \) to balance it:
+								<br> \( = \frac{1}{3} \int (3x^2)(x^3 - 5)^7 dx \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong> Now the pattern is perfect inside the integral.
+								<br> \( = \frac{1}{3} \left[ \frac{(x^3 - 5)^8}{8} \right] + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = \frac{1}{24}(x^3 - 5)^8 + C \)</li>
+						</ol>
+					</section>
+
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Pattern Recognition: Example 5</h3>
+						<p>Evaluate: \( \int \frac{x}{\sqrt{x^2 + 9}} dx \)</p>
+						<ol style="font-size: 0.75em; ">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite:</strong> \( \int x(x^2 + 9)^{-1/2} dx \)</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify & Adjust:</strong> \( g(x) = x^2 + 9 \), so \( g^{\prime}(x) = 2x \). We only have \( x \).
+								<br>Multiply inside by 2, outside by \( \frac{1}{2} \):
+								<br> \( = \frac{1}{2} \int 2x(x^2 + 9)^{-1/2} dx \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong> Power rule on \( -1/2 \). Add 1 to get \( 1/2 \), divide by \( 1/2 \).
+								<br> \( = \frac{1}{2} \left[ \frac{(x^2 + 9)^{1/2}}{1/2} \right] + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> The \( \frac{1}{2} \) and dividing by \( 1/2 \) cancel out.<br> \( = \sqrt{x^2 + 9} + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Pattern Recognition: Example 6</h3>
+						<p>Evaluate: \( \int \sin(3x) dx \)</p>
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify & Adjust:</strong> Inner \( g(x) = 3x \). Derivative is 3. We are missing a 3.
+								<br>Multiply inside by 3, outside by \( \frac{1}{3} \).
+								<br> \( = \frac{1}{3} \int \sin(3x) \cdot 3 dx \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong> The antiderivative of sine is negative cosine.
+								<br> \( = \frac{1}{3} (-\cos(3x)) + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = -\frac{1}{3}\cos(3x) + C \)</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Part 2: Change of Variables (Formal u-Substitution)</h3>
+						<p style="font-size: 0.8em;">Sometimes, the derivative is NOT present, and adjusting by a constant won't fix it. We must completely rewrite the integral in terms of a new variable, \( u \).</p>
+						<div style="background: #222; padding: 15px; border-radius: 8px; margin-top: 20px;">
+							<ol style="font-size: 0.75em;">
+								<li>Let \( u = g(x) \).</li>
+								<li>Find \( du = g^{\prime}(x)dx \).</li>
+								<li>If there are leftover \( x \)'s, solve \( u = g(x) \) for \( x \) and substitute!</li>
+								<li>Integrate with respect to \( u \).</li>
+								<li>Substitute \( x \) back in.</li>
+							</ol>
+						</div>
+						<p><small><em>(Press Down Arrow for 6 Examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Change of Variables: Example 1</h3>
+						<p>Evaluate: \( \int x\sqrt{x + 1} dx \)</p>
+						<p style="color: #ffaa00; font-size: 0.6em;"><em>Why PR fails: Derivative of (x+1) is 1. We have an extra 'x' outside!</em></p>
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u = x + 1 \). Therefore, \( du = dx \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for leftover \( x \):</strong> Since \( u = x + 1 \), then \( x = u - 1 \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute everything to \( u \):</strong>
+								<br> \( \int (u - 1)\sqrt{u} du = \int (u - 1)u^{1/2} du \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Distribute & Integrate:</strong>
+								<br> \( = \int (u^{3/2} - u^{1/2}) du \)
+								<br> \( = \frac{2}{5}u^{5/2} - \frac{2}{3}u^{3/2} + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer (Substitute back):</strong> <br> \( = \frac{2}{5}(x + 1)^{5/2} - \frac{2}{3}(x + 1)^{3/2} + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Change of Variables: Example 2</h3>
+						<p>Evaluate: \( \int x^2\sqrt{1 - x} dx \)</p>
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u = 1 - x \). Then \( du = -dx \), so \( dx = -du \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for leftover \( x^2 \):</strong> Since \( x = 1 - u \), then \( x^2 = (1 - u)^2 = 1 - 2u + u^2 \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute:</strong>
+								<br> \( \int (1 - 2u + u^2)\sqrt{u}(-du) = -\int (u^{1/2} - 2u^{3/2} + u^{5/2}) du \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong>
+								<br> \( = -\left( \frac{2}{3}u^{3/2} - 2(\frac{2}{5})u^{5/2} + \frac{2}{7}u^{7/2} \right) + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = -\frac{2}{3}(1 - x)^{3/2} + \frac{4}{5}(1 - x)^{5/2} - \frac{2}{7}(1 - x)^{7/2} + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Change of Variables: Example 3</h3>
+						<p>Evaluate: \( \int \frac{x}{(x - 1)^3} dx \)</p>
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u = x - 1 \). Then \( du = dx \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for leftover \( x \):</strong> \( x = u + 1 \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute:</strong>
+								<br> \( \int \frac{u + 1}{u^3} du \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Divide and Integrate:</strong>
+								<br> \( = \int (u^{-2} + u^{-3}) du \)
+								<br> \( = \frac{u^{-1}}{-1} + \frac{u^{-2}}{-2} + C \)
+								<br> \( = -\frac{1}{u} - \frac{1}{2u^2} + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = -\frac{1}{x - 1} - \frac{1}{2(x - 1)^2} + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Change of Variables: Example 4</h3>
+						<p>Evaluate: \( \int x\sqrt{2x - 1} dx \)</p>
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u = 2x - 1 \). Then \( du = 2dx \), so \( dx = \frac{du}{2} \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for leftover \( x \):</strong> \( 2x = u + 1 \implies x = \frac{u + 1}{2} \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute:</strong>
+								<br> \( \int \left(\frac{u + 1}{2}\right) \sqrt{u} \left(\frac{du}{2}\right) = \frac{1}{4} \int (u + 1)u^{1/2} du \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Distribute & Integrate:</strong>
+								<br> \( = \frac{1}{4} \int (u^{3/2} + u^{1/2}) du = \frac{1}{4} \left( \frac{2}{5}u^{5/2} + \frac{2}{3}u^{3/2} \right) + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = \frac{1}{10}(2x - 1)^{5/2} + \frac{1}{6}(2x - 1)^{3/2} + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Change of Variables: Example 5</h3>
+						<p>Evaluate: \( \int \frac{2x + 1}{\sqrt{x + 4}} dx \)</p>
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u = x + 4 \). Then \( du = dx \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for leftover \( x \):</strong> \( x = u - 4 \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute (Numerator becomes \( 2(u-4)+1 \)):</strong>
+								<br> \( \int \frac{2u - 8 + 1}{\sqrt{u}} du = \int \frac{2u - 7}{u^{1/2}} du \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Divide & Integrate:</strong>
+								<br> \( = \int (2u^{1/2} - 7u^{-1/2}) du \)
+								<br> \( = 2\left(\frac{2}{3}u^{3/2}\right) - 7\left(2u^{1/2}\right) + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = \frac{4}{3}(x + 4)^{3/2} - 14\sqrt{x + 4} + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Change of Variables: Example 6</h3>
+						<p>Evaluate: \( \int (x + 1)\sqrt{2 - x} dx \)</p>
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u = 2 - x \). Then \( du = -dx \), so \( dx = -du \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for leftover \( x \):</strong> \( x = 2 - u \).</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute (Factor becomes \( (2-u)+1 = 3-u \)):</strong>
+								<br> \( \int (3 - u)\sqrt{u}(-du) = \int (u - 3)u^{1/2} du \)
+							</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Distribute & Integrate:</strong>
+								<br> \( = \int (u^{3/2} - 3u^{1/2}) du \)
+								<br> \( = \frac{2}{5}u^{5/2} - 3\left(\frac{2}{3}u^{3/2}\right) + C \)
+							</li>
+							<li class="fragment"><strong>Final Answer:</strong> <br> \( = \frac{2}{5}(2 - x)^{5/2} - 2(2 - x)^{3/2} + C \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

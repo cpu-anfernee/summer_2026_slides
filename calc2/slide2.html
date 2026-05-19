@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 4.1 - Antiderivatives and Indefinite Integration (Trigonometry)</title>
+
+		<meta
+			name="description"
+			content="Antiderivatives and Indefinite Integration of Trigonometric Functions"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 4.1</h2>
+					<h3>Antiderivatives and Indefinite Integration</h3>
+					<p><small>Part 2: Trigonometric Functions</small></p>
+				</section>
+
+				<section>
+					<h3>From Derivatives to Antiderivatives</h3>
+					<p style="font-size: 0.8em;">Just as with algebraic functions, the integration rules for trigonometric functions are derived directly by reversing their derivative rules.</p>
+					
+					<div style="display: flex; justify-content: space-around; font-size: 0.8em; margin-top: 20px;">
+						<div style="background: #222; padding: 15px; border-radius: 8px;">
+							<p style="color: #88ccff;"><strong>Derivatives</strong></p>
+							<p>\(\frac{d}{dx}[\sin x] = \cos x\)</p>
+							<p>\(\frac{d}{dx}[\cos x] = -\sin x\)</p>
+							<p>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</p>
+						</div>
+						<div style="background: #222; padding: 15px; border-radius: 8px;">
+							<p style="color: #88ccff;"><strong>Antiderivatives</strong></p>
+							<p>\(\int \cos x dx = \sin x + C\)</p>
+							<p>\(\int \sin x dx = -\cos x + C\)</p>
+							<p>\(\int \sec^2 x dx = \tan x + C\)</p>
+						</div>
+					</div>
+					<p><small style="color: #ff6666; margin-top: 15px;"><em>Watch the negative signs! Integrating sine results in a NEGATIVE cosine.</em></small></p>
+				</section>
+
+				<section>
+					<h3>The 6 Basic Trigonometric Rules</h3>
+					<div style="display: flex; justify-content: space-around; font-size: 0.8em; border: 2px dashed #fff; padding: 20px;">
+						<div>
+							<p>\(\int \sin x~dx=-\cos x+C\)</p>
+							<p>\(\int \cos x~dx=\sin x+C\)</p>
+							<p>\(\int \sec^{2}x~dx=\tan x+C\)</p>
+						</div>
+						<div>
+							<p>\(\int \sec x\tan x~dx=\sec x+C\)</p>
+							<p>\(\int \csc^{2}x~dx=-\cot x+C\)</p>
+							<p>\(\int \csc x\cot x~dx=-\csc x+C\)</p>
+						</div>
+					</div>
+					<p style="font-size: 0.6em; margin-top: 15px;"></p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Step-by-Step Example 1</h3>
+						<p>Evaluate: \(\int 2\sin x~dx\)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Constant Multiple Rule:</strong> Factor the 2 outside the integral to isolate the trigonometric function.<br>
+							\(= 2\int \sin x~dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Trig Integration Rule:</strong> Recall that the antiderivative of \(\sin x\) is \(-\cos x\).<br>
+							\(= 2(-\cos x) + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Multiply the constant back in.<br><br>
+							<strong>Final Answer:</strong> \(= -2\cos x + C\)</li>
+						</ol>
+						<p><small><em>(Press Down Arrow for More Examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Step-by-Step Example 2</h3>
+						<p>Evaluate: \(\int (t^{2} - \sin t)dt\)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Sum/Difference Rule:</strong> Separate the polynomial and the trigonometric term into two integrals.<br>
+							\(= \int t^{2}dt - \int \sin t~dt\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate Term by Term:</strong><br>
+							For \(\int t^{2}dt\), use the Power Rule: \(\frac{t^{3}}{3}\).<br>
+							For \(\int \sin t~dt\), use the Trig Rule: \(-\cos t\).<br>
+							\(= \left(\frac{t^{3}}{3}\right) - (-\cos t) + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify Signs:</strong> Notice the double negative \(- (-\cos t)\).<br><br>
+							<strong>Final Answer:</strong> \(= \frac{t^{3}}{3} + \cos t + C\)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Step-by-Step Example 3</h3>
+						<p>Evaluate: \(\int \frac{\sin x}{\cos^{2}x}dx\)</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.7em;"><em>There is no rule for this exact fraction. We must rewrite it using trigonometric identities first!</em></p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Split the Denominator:</strong> Rewrite \(\cos^{2}x\) as \(\cos x \cdot \cos x\) and separate the fraction.<br>
+							\(= \int \left(\frac{1}{\cos x}\right)\left(\frac{\sin x}{\cos x}\right)dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply Identities:</strong> Convert to known functions.<br>
+							Recall: \(\frac{1}{\cos x} = \sec x\) and \(\frac{\sin x}{\cos x} = \tan x\).<br>
+							\(= \int \sec x \tan x~dx\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate using Basic Rules:</strong> Now it matches one of our 6 standard rules.<br><br>
+							<strong>Final Answer:</strong> \(= \sec x + C\)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Step-by-Step Example 4 (IVP)</h3>
+						<p style="font-size: 0.8em;">Find the particular solution to \(f^{\prime}(x) = \sec^{2}x\) given the initial condition \(f\left(\frac{\pi}{4}\right) = 3\).</p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Find the General Antiderivative:</strong><br>
+							\(f(x) = \int \sec^{2}x~dx = \tan x + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute the Initial Condition:</strong> Plug in \(x = \frac{\pi}{4}\) and set it equal to 3.<br>
+							\(3 = \tan\left(\frac{\pi}{4}\right) + C\)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve for C:</strong> We know \(\tan\left(\frac{\pi}{4}\right) = 1\).<br>
+							\(3 = 1 + C \implies C = 2\)</li>
+
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Write the Particular Solution:</strong> Replace C in the general equation.<br><br>
+							<strong>Final Answer:</strong> \(f(x) = \tan x + 2\)</li>
+						</ol>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
