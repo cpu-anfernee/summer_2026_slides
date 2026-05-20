@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 2.3 - Linear First-Order Differential Equations</title>
+
+		<meta
+			name="description"
+			content="Solving Linear First-Order DEs using Integrating Factors"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 2.3</h2>
+					<h3 style="font-size: 1.5em;">Linear First-Order Equations</h3>
+					<p><small>Solving using the Integrating Factor Method</small></p>
+				</section>
+
+				<section>
+					<h3>Standard Form</h3>
+					<p style="font-size: 0.8em;">A first-order differential equation is <strong>linear</strong> if it can be expressed in the form:</p>
+					\[ a_1(x)\frac{dy}{dx} + a_0(x)y = b(x) \]
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.8em;">
+						<p style="margin-bottom: 5px;"><strong>The Standard Form</strong></p>
+						<p style="font-size: 0.85em; margin-bottom: 5px;">To solve the equation, we must divide by the leading coefficient \( a_1(x) \) to get it into the standard form:</p>
+						\[ \frac{dy}{dx} + P(x)y = Q(x) \]
+					</div>
+				</section>
+
+				<section>
+					<h3>The Integrating Factor Method</h3>
+					<div style="background: #222; padding: 15px; border-radius: 8px; font-size: 0.7em; text-align: left;">
+						<ol>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Standard Form:</strong> Write the equation as \( \frac{dy}{dx} + P(x)y = Q(x) \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Integrating Factor:</strong> Calculate \( \mu(x) \) (or \( I(x) \)):<br>
+							\[ \mu(x) = e^{\int P(x) dx} \]</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply:</strong> Multiply the entire standard form equation by \( \mu(x) \). The left side will <em>always</em> collapse into the derivative of a product:<br>
+							\[ \frac{d}{dx}[\mu(x) y] = \mu(x) Q(x) \]</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> Integrate both sides with respect to \( x \):<br>
+							\[ \mu(x) y = \int \mu(x) Q(x) dx + C \]</li>
+							<li class="fragment"><strong>Solve for y:</strong> Divide by \( \mu(x) \) to find the general explicit solution.</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples of Linear Equations</h3>
+						<p>The following slides contain step-by-step solutions utilizing integrating factors.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Basic Standard Form</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} + 2xy = x \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( P(x) \):</strong> The equation is already in standard form. \( P(x) = 2x \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Integrating Factor:</strong><br>
+							\( \mu(x) = e^{\int 2x \, dx} = e^{x^2} \)<br>
+							<small><em>(We drop the constant of integration here).</em></small></li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply and Collapse:</strong><br>
+							\( e^{x^2}\frac{dy}{dx} + 2xe^{x^2}y = xe^{x^2} \implies \frac{d}{dx}[e^{x^2} y] = xe^{x^2} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate Both Sides:</strong> Use \( u \)-substitution (\( u=x^2 \)) on the right.<br>
+							\( e^{x^2} y = \int xe^{x^2} dx = \frac{1}{2}e^{x^2} + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Divide by \( e^{x^2} \).<br>
+							\( y = \frac{1}{2} + C e^{-x^2} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Division Required</h3>
+						<p style="font-size: 0.8em;">Solve: \( x \frac{dy}{dx} + 2y = x^3 \), for \( x > 0 \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Standard Form:</strong> Divide everything by \( x \).<br>
+							\( \frac{dy}{dx} + \frac{2}{x} y = x^2 \). So, \( P(x) = \frac{2}{x} \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Integrating Factor:</strong><br>
+							\( \mu(x) = e^{\int \frac{2}{x} dx} = e^{2\ln x} = e^{\ln x^2} = x^2 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply and Collapse:</strong><br>
+							\( x^2 \frac{dy}{dx} + 2xy = x^4 \implies \frac{d}{dx}[x^2 y] = x^4 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate Both Sides:</strong><br>
+							\( x^2 y = \int x^4 dx = \frac{x^5}{5} + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Divide by \( x^2 \).<br>
+							\( y = \frac{x^3}{5} + \frac{C}{x^2} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Constant Coefficients</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} - 3y = 6 \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( P(x) \):</strong> \( P(x) = -3 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Integrating Factor:</strong><br>
+							\( \mu(x) = e^{\int -3 dx} = e^{-3x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply and Collapse:</strong><br>
+							\( e^{-3x}\frac{dy}{dx} - 3e^{-3x}y = 6e^{-3x} \implies \frac{d}{dx}[e^{-3x} y] = 6e^{-3x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate Both Sides:</strong><br>
+							\( e^{-3x} y = \int 6e^{-3x} dx = -2e^{-3x} + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Multiply by \( e^{3x} \).<br>
+							\( y = -2 + C e^{3x} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Trigonometric Functions</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} + (\cot x) y = \csc x \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( P(x) \):</strong> \( P(x) = \cot x \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Integrating Factor:</strong><br>
+							\( \mu(x) = e^{\int \cot x \, dx} = e^{\ln|\sin x|} = \sin x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply and Collapse:</strong><br>
+							\( \sin x \frac{dy}{dx} + \cos x \cdot y = \csc x \sin x \)<br>
+							\( \frac{d}{dx}[y \sin x] = 1 \)<br>
+							<small><em>(Note: \(\csc x \cdot \sin x = 1\))</em></small></li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate Both Sides:</strong><br>
+							\( y \sin x = \int 1 dx = x + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Divide by \( \sin x \).<br>
+							\( y = x \csc x + C \csc x \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Integration by Parts Needed</h3>
+						<p style="font-size: 0.8em;">Solve: \( x \frac{dy}{dx} + y = x e^x \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Standard Form:</strong> Divide by \( x \).<br>
+							\( \frac{dy}{dx} + \frac{1}{x} y = e^x \). So, \( P(x) = \frac{1}{x} \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Integrating Factor:</strong><br>
+							\( \mu(x) = e^{\int \frac{1}{x} dx} = e^{\ln x} = x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply and Collapse:</strong> We actually just multiplied it back to the original form!<br>
+							\( x \frac{dy}{dx} + y = x e^x \implies \frac{d}{dx}[xy] = x e^x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate Both Sides:</strong> Use Integration by Parts for \( \int x e^x dx \).<br>
+							\( u = x, \ dv = e^x dx \implies du = dx, \ v = e^x \)<br>
+							\( xy = x e^x - \int e^x dx \implies xy = x e^x - e^x + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Divide by \( x \).<br>
+							\( y = e^x - \frac{e^x}{x} + \frac{C}{x} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Initial Value Problem</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} + y = e^{3x} \), given \( y(0) = 4 \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( P(x) \) and Integrating Factor:</strong><br>
+							\( P(x) = 1 \implies \mu(x) = e^{\int 1 dx} = e^x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Multiply and Collapse:</strong><br>
+							\( e^x \frac{dy}{dx} + e^x y = e^{4x} \implies \frac{d}{dx}[ye^x] = e^{4x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate and Find General Solution:</strong><br>
+							\( y e^x = \int e^{4x} dx = \frac{1}{4}e^{4x} + C \)<br>
+							\( y = \frac{1}{4}e^{3x} + C e^{-x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Initial Condition:</strong> Plug in \( x=0, y=4 \).<br>
+							\( 4 = \frac{1}{4}e^0 + C e^0 \implies 4 = \frac{1}{4} + C \implies C = \frac{15}{4} \)</li>
+							<li class="fragment"><strong>Particular Solution:</strong><br>
+							\( y = \frac{1}{4}e^{3x} + \frac{15}{4}e^{-x} \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

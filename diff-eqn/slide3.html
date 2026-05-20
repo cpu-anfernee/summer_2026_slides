@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 2.2 - Separable Equations</title>
+
+		<meta
+			name="description"
+			content="Solving First-Order Separable Differential Equations"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 2.2</h2>
+					<h3>Separable Equations</h3>
+					<p><small>Solving First-Order Differential Equations by Separation of Variables</small></p>
+				</section>
+
+				<section>
+					<h3>What is a Separable Equation?</h3>
+          <div style="font-size: 0.8em;">
+            <p>A first-order differential equation is <strong>separable</strong> if it can be written in the form:</p>
+            \[ \frac{dy}{dx} = g(x)p(y) \]
+            <p>Or, equivalently, by letting \( h(y) = \frac{1}{p(y)} \):</p>
+            \[ h(y) \frac{dy}{dx} = g(x) \]
+          </div>
+					<p><small>The key characteristic is that the expression can be factored into a function of entirely \( x \) multiplied by a function of entirely \( y \).</small></p>
+				</section>
+
+				<section style="overflow-y: auto !important; height: 100%;">
+					<h3>Method of Solution</h3>
+					<div style="background: #222; padding: 15px; border-radius: 8px; font-size: 0.8em; text-align: left;">
+						<ol>
+							<li class="fragment" style="margin-bottom: 15px;"><strong>Separate the variables:</strong> Multiply/divide to get all \( y \)'s (including \( dy \)) on one side and all \( x \)'s (including \( dx \)) on the other.<br>
+							\[ h(y) dy = g(x) dx \]</li>
+							<li class="fragment" style="margin-bottom: 15px;"><strong>Integrate both sides:</strong><br>
+							\[ \int h(y) dy = \int g(x) dx \]</li>
+							<li class="fragment" style="margin-bottom: 15px;"><strong>Combine constants:</strong> Both integrals produce a constant of integration, but they can be combined into a single arbitrary constant \( C \) on the right side.</li>
+							<li class="fragment"><strong>Solve for y:</strong> If possible, solve the resulting equation explicitly for \( y \). Otherwise, leave it as an implicit solution.</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples of Separable Equations</h3>
+						<p>The following slides contain step-by-step solutions to five different types of separable differential equations.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Basic Algebraic</h3>
+						<p>Solve: \( \frac{dy}{dx} = \frac{x}{y} \)</p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Separate:</strong> Multiply both sides by \( y \) and \( dx \).<br>
+							\( y \, dy = x \, dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong><br>
+							\( \int y \, dy = \int x \, dx \)<br>
+							\( \frac{y^2}{2} = \frac{x^2}{2} + C_1 \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Multiply by 2 to clear fractions.<br>
+							\( y^2 = x^2 + 2C_1 \)<br>
+							Let \( C = 2C_1 \).</li>
+							
+							<li class="fragment"><strong>Final Implicit Solution:</strong><br>
+							\( y^2 - x^2 = C \) <br>
+							<small><em>(This represents a family of hyperbolas).</em></small></li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Exponential Functions</h3>
+						<p>Solve: \( \frac{dy}{dx} = x e^{-y} \)</p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Separate:</strong> Multiply by \( e^y \) and \( dx \).<br>
+							\( e^y \, dy = x \, dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong><br>
+							\( \int e^y \, dy = \int x \, dx \)<br>
+							\( e^y = \frac{x^2}{2} + C \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Solve Explicitly:</strong> Take the natural logarithm of both sides.<br>
+							\( \ln(e^y) = \ln\left(\frac{x^2}{2} + C\right) \)</li>
+							
+							<li class="fragment"><strong>Final Explicit Solution:</strong><br>
+							\( y(x) = \ln\left(\frac{x^2}{2} + C\right) \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Rational Functions</h3>
+						<p>Solve: \( \frac{dy}{dx} = \frac{x^2 - 1}{y^2 + 1} \)</p>
+						
+						<ol style="font-size: 0.75em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Separate:</strong> Cross-multiply to group variables.<br>
+							\( (y^2 + 1) \, dy = (x^2 - 1) \, dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong><br>
+							\( \int (y^2 + 1) \, dy = \int (x^2 - 1) \, dx \)<br>
+							\( \frac{y^3}{3} + y = \frac{x^3}{3} - x + C_1 \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Simplify:</strong> Multiply by 3 for a cleaner look (optional).<br>
+							\( y^3 + 3y = x^3 - 3x + 3C_1 \)</li>
+							
+							<li class="fragment"><strong>Final Implicit Solution:</strong><br>
+							\( y^3 + 3y = x^3 - 3x + C \)<br>
+							<small><em>(Because solving for \( y \) explicitly requires the cubic formula, leaving it implicit is standard practice here).</em></small></li>
+						</ol>
+					</section>
+
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Example 4: Initial Value Problem (IVP)</h3>
+						<p>Solve: \( \frac{dy}{dx} = xy^2 \) , given \( y(0) = 1 \)</p>
+						
+						<ol style="font-size: 0.70em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Separate:</strong> Divide by \( y^2 \) (assuming \( y \neq 0 \)).<br>
+							\( y^{-2} \, dy = x \, dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \frac{y^{-1}}{-1} = \frac{x^2}{2} + C \implies -\frac{1}{y} = \frac{x^2}{2} + C \)</li>
+							
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Initial Condition:</strong> Plug in \( x=0, y=1 \).<br>
+							\( -\frac{1}{1} = \frac{0^2}{2} + C \implies C = -1 \)</li>
+							
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute C back:</strong><br>
+							\( -\frac{1}{y} = \frac{x^2}{2} - 1 \implies -\frac{1}{y} = \frac{x^2 - 2}{2} \)</li>
+							
+							<li class="fragment"><strong>Final Explicit Solution:</strong> Take the reciprocal.<br>
+							\( -y = \frac{2}{x^2 - 2} \implies y(x) = \frac{2}{2 - x^2} \)</li>
+						</ol>
+					</section>
+
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Example 5: Careful Factoring</h3>
+						<p>Solve: \( \frac{dy}{dx} = xy + 2x - y - 2 \)</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em;"><em>At first glance, this doesn't look separable. We must factor by grouping first!</em></p>
+						
+						<ol style="font-size: 0.70em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Factor the RHS:</strong><br>
+							\( xy + 2x - (y + 2) \)<br>
+							\( x(y + 2) - 1(y + 2) \)<br>
+							\( \frac{dy}{dx} = (x - 1)(y + 2) \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Separate:</strong><br>
+							\( \frac{1}{y + 2} \, dy = (x - 1) \, dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate:</strong><br>
+							\( \ln|y + 2| = \frac{x^2}{2} - x + C \)</li>
+							
+							<li class="fragment"><strong>Solve Explicitly:</strong> Exponentiate both sides.<br>
+							\( |y + 2| = e^{x^2/2 - x + C} = e^C \cdot e^{x^2/2 - x} \)<br>
+							Let \( K = \pm e^C \) (an arbitrary constant).<br>
+							<strong>Final Answer:</strong> \( y(x) = K e^{x^2/2 - x} - 2 \)</li>
+						</ol>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
