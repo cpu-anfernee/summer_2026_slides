@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 5.2 - The Natural Logarithmic Function: Integration</title>
+
+		<meta
+			name="description"
+			content="Integration yielding the Natural Logarithmic Function"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 5.2</h2>
+					<h3>The Natural Logarithmic Function</h3>
+					<p><small>Integration Using the Log Rule</small></p>
+				</section>
+
+				<section>
+					<h3>The Log Rule for Integration</h3>
+					<p>In Chapter 4, we learned the Power Rule for integration: \( \int x^n dx = \frac{x^{n+1}}{n+1} + C \). However, this rule fails when \( n = -1 \).</p>
+					<div style="background: #222; padding: 15px; border-radius: 8px; margin-top: 20px;">
+						<p><strong>The Log Rule answers this missing case:</strong></p>
+						\[ \int \frac{1}{x} dx = \ln|x| + C \]
+					</div>
+					<p><small>Note the absolute value bars! They are required because the domain of the natural logarithm function does not include negative numbers, but the domain of \( \frac{1}{x} \) does.</small></p>
+				</section>
+
+				<section>
+					<h3>The General Log Rule</h3>
+					<p style="font-size: smaller;">When combined with substitution (the Chain Rule in reverse), the Log Rule takes a powerful generalized form.</p>
+					<p style="font-size: smaller;">If \( u \) is a differentiable function of \( x \):</p>
+					\[ \int \frac{1}{u} du = \ln|u| + C \]
+					<p style="font-size: 0.8em;">Alternatively written as recognizing the derivative of the denominator in the numerator:</p>
+					\[ \int \frac{u^{\prime}}{u} dx = \ln|u| + C \]
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples of Logarithmic Integration</h3>
+						<p>The following slides contain step-by-step solutions to integrals that yield natural logarithms.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Basic Constant Multiple</h3>
+						<p>Evaluate: \( \int \frac{5}{x} dx \)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Factor the Constant:</strong> Pull the 5 outside the integral.<br>
+							\( = 5 \int \frac{1}{x} dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Apply the Log Rule:</strong> Recognize the standard form.<br>
+							\( = 5 \ln|x| + C \)</li>
+							
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( 5 \ln|x| + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Simple u-Substitution</h3>
+						<p>Evaluate: \( \int \frac{1}{x - 4} dx \)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let the denominator be \( u \).<br>
+							\( u = x - 4 \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Find \( du \):</strong> The derivative of \( x-4 \) is 1.<br>
+							\( du = dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute and Integrate:</strong><br>
+							\( = \int \frac{1}{u} du = \ln|u| + C \)</li>
+							
+							<li class="fragment"><strong>Substitute Back:</strong> Replace \( u \) with \( x-4 \).<br>
+							<strong>Final Answer:</strong> \( \ln|x - 4| + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Adjusting the Numerator</h3>
+						<p>Evaluate: \( \int \frac{x}{x^2 + 1} dx \)</p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \) and \( du \):</strong><br>
+							Let \( u = x^2 + 1 \). Then \( du = 2x dx \).</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Adjust Constants:</strong> We have an \( x \) in the numerator, but we need \( 2x \). Multiply inside by 2 and outside by 1/2.<br>
+							\( = \frac{1}{2} \int \frac{2x}{x^2 + 1} dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute and Integrate:</strong> Now we have \( \frac{1}{2} \int \frac{1}{u} du \).<br>
+							\( = \frac{1}{2} \ln|u| + C \)</li>
+							
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( = \frac{1}{2} \ln(x^2 + 1) + C \)<br>
+							<small><em>(Note: Absolute value bars can be dropped here since \( x^2+1 \) is always positive).</em></small></li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Direct Pattern Recognition</h3>
+						<p>Evaluate: \( \int \frac{3x^2 + 4}{x^3 + 4x - 3} dx \)</p>
+						<p class="fragment" style="color: #88ccff; font-size: 0.7em;"><em>Look for the \( \frac{u^{\prime}}{u} \) pattern directly!</em></p>
+						
+						<ol style="font-size: 0.8em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Identify the Denominator's Derivative:</strong><br>
+							Let \( u = x^3 + 4x - 3 \).<br>
+							\( u^{\prime} = 3x^2 + 4 \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Verify:</strong> The numerator is exactly the derivative of the denominator!</li>
+							
+							<li class="fragment"><strong>Apply the General Rule Immediately:</strong><br>
+							<strong>Final Answer:</strong> \( \ln|x^3 + 4x - 3| + C \)</li>
+						</ol>
+					</section>
+
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Example 5: Improper Rational Functions</h3>
+						<p>Evaluate: \( \int \frac{x^2 + x + 1}{x^2 + 1} dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Recognize the Problem:</strong> The degree of the numerator (2) is equal to or greater than the denominator (2). We must use long division or algebraic manipulation first.</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite the Fraction:</strong> Split the numerator to group \( x^2+1 \) together.<br>
+							\( \frac{x^2 + 1 + x}{x^2 + 1} = \frac{x^2 + 1}{x^2 + 1} + \frac{x}{x^2 + 1} = 1 + \frac{x}{x^2 + 1} \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up the New Integral:</strong><br>
+							\( \int \left( 1 + \frac{x}{x^2 + 1} \right) dx = \int 1 dx + \int \frac{x}{x^2 + 1} dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Integrate Separately:</strong> We solved the right side in Example 3.<br>
+							Left side: \( x \)<br>
+							Right side: \( \frac{1}{2} \ln(x^2 + 1) \)</li>
+							
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( x + \frac{1}{2} \ln(x^2 + 1) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Trigonometric Rewriting</h3>
+						<p>Evaluate: \( \int \tan x \, dx \)</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.7em;"><em>Wait, there's no fraction here! Let's make one using identities.</em></p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Rewrite as Sine/Cosine:</strong><br>
+							\( \int \frac{\sin x}{\cos x} dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Set up \( u \):</strong> Let \( u \) be the denominator.<br>
+							\( u = \cos x \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Find \( du \):</strong><br>
+							\( du = -\sin x \, dx \implies -du = \sin x \, dx \)</li>
+							
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Substitute and Integrate:</strong><br>
+							\( \int \frac{1}{u} (-du) = -\int \frac{1}{u} du = -\ln|u| + C \)</li>
+							
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( -\ln|\cos x| + C \)<br>
+							<small><em>(Note: By logarithmic properties, this is also equal to \( \ln|\sec x| + C \)).</em></small></li>
+						</ol>
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
