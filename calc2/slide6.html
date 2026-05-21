@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 5.8 - Inverse Trigonometric Functions: Integration</title>
+
+		<meta
+			name="description"
+			content="Integration Resulting in Inverse Trigonometric Functions"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 5.8</h2>
+					<h3 style="font-size: 1.5em;">Inverse Trigonometric Functions</h3>
+					<p><small>Integration Rules Yielding Arcsine, Arctangent, and Arcsecant</small></p>
+				</section>
+
+				<section>
+					<h3>The Three Standard Integration Rules</h3>
+					<p style="font-size: 0.8em;">When integrating rational or radical functions that do not fit the standard Power or Log rules, look for these three distinct patterns (where \( a > 0 \)):</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 10px; color: #88ccff;"><strong>1. Inverse Sine (Arcsine)</strong></p>
+						\[ \int \frac{du}{\sqrt{a^2 - u^2}} = \arcsin\left(\frac{u}{a}\right) + C \]
+						
+						<p style="margin-bottom: 10px; margin-top: 15px; color: #ffaa00;"><strong>2. Inverse Tangent (Arctangent)</strong></p>
+						\[ \int \frac{du}{a^2 + u^2} = \frac{1}{a} \arctan\left(\frac{u}{a}\right) + C \]
+						
+						<p style="margin-bottom: 10px; margin-top: 15px; color: #66ff66;"><strong>3. Inverse Secant (Arcsecant)</strong></p>
+						\[ \int \frac{du}{u\sqrt{u^2 - a^2}} = \frac{1}{a} \text{arcsec}\left(\frac{|u|}{a}\right) + C \]
+					</div>
+					<p style="font-size: 0.6em; margin-top: 10px;"><em>Notice that only arctangent and arcsecant have the \( \frac{1}{a} \) coefficient in front!</em></p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions demonstrating how to manipulate integrals to fit these three standard forms.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Basic Arcsine</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \frac{dx}{\sqrt{16 - x^2}} \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify the Pattern:</strong> The denominator has a square root with a constant minus a variable squared. This matches the <strong>arcsine</strong> form.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( a \) and \( u \):</strong><br>
+							\( a^2 = 16 \implies a = 4 \)<br>
+							\( u^2 = x^2 \implies u = x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Rule:</strong><br>
+							\( \int \frac{du}{\sqrt{a^2 - u^2}} = \arcsin\left(\frac{u}{a}\right) + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \arcsin\left(\frac{x}{4}\right) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Arctangent with u-Substitution</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \frac{dx}{2 + 9x^2} \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify the Pattern:</strong> No square root, sum of two squares in the denominator. This is the <strong>arctangent</strong> form.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( a \) and \( u \):</strong><br>
+							\( a^2 = 2 \implies a = \sqrt{2} \)<br>
+							\( u^2 = 9x^2 \implies u = 3x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = 3 dx \). We only have \( dx \), so divide by 3: \( dx = \frac{du}{3} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong><br>
+							\( \int \frac{du/3}{a^2 + u^2} = \frac{1}{3} \int \frac{du}{a^2 + u^2} \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Apply the \( \frac{1}{a} \) coefficient.<br>
+							\( \frac{1}{3} \left[ \frac{1}{\sqrt{2}} \arctan\left(\frac{3x}{\sqrt{2}}\right) \right] + C = \frac{1}{3\sqrt{2}} \arctan\left(\frac{3x}{\sqrt{2}}\right) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Arcsecant Manipulation</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \frac{dx}{x\sqrt{4x^2 - 9}} \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify the Pattern:</strong> Variable outside the square root, and variable squared minus a constant inside. This is the <strong>arcsecant</strong> form.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( a \) and \( u \):</strong><br>
+							\( a^2 = 9 \implies a = 3 \)<br>
+							\( u^2 = 4x^2 \implies u = 2x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Adjust the Denominator:</strong> We need a \( u \) (which is \( 2x \)) outside the root, but we only have \( x \). Multiply top and bottom by 2.<br>
+							\( \int \frac{2 dx}{2x\sqrt{(2x)^2 - 3^2}} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( u = 2x \implies du = 2 dx \). Notice that our numerator is exactly \( du \)!</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong><br>
+							\( \int \frac{du}{u\sqrt{u^2 - a^2}} \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \frac{1}{3} \text{arcsec}\left(\frac{|2x|}{3}\right) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Completing the Square</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \frac{dx}{x^2 - 4x + 7} \)</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em; margin-bottom: 5px;"><em>If the denominator is an unfactorable quadratic, complete the square to force the arctangent form!</em></p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Complete the Square:</strong> Take half the middle term (-4/2 = -2) and square it (4). Add and subtract this inside the denominator.<br>
+							\( x^2 - 4x + 4 - 4 + 7 \)<br>
+							\( (x - 2)^2 + 3 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integral:</strong><br>
+							\( \int \frac{dx}{(x - 2)^2 + 3} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify \( a \) and \( u \):</strong><br>
+							\( u^2 = (x - 2)^2 \implies u = x - 2 \) and \( du = dx \)<br>
+							\( a^2 = 3 \implies a = \sqrt{3} \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \frac{1}{\sqrt{3}} \arctan\left(\frac{x - 2}{\sqrt{3}}\right) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Splitting the Fraction</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \frac{x + 2}{\sqrt{9 - x^2}} dx \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Split the Numerator:</strong> We cannot use a simple u-sub because of the "+ 2". Separate it into two integrals.<br>
+							\( \int \frac{x}{\sqrt{9 - x^2}} dx + \int \frac{2}{\sqrt{9 - x^2}} dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve Integral 1 (Power Rule):</strong> Let \( w = 9 - x^2 \), so \( dw = -2x dx \).<br>
+							\( \int x(9 - x^2)^{-1/2} dx = -\frac{1}{2} \int w^{-1/2} dw = -\frac{1}{2} (2w^{1/2}) = -\sqrt{9 - x^2} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve Integral 2 (Arcsine):</strong> Pull out the 2. \( a = 3, u = x \).<br>
+							\( 2 \int \frac{dx}{\sqrt{3^2 - x^2}} = 2 \arcsin\left(\frac{x}{3}\right) \)</li>
+							<li class="fragment"><strong>Final Answer:</strong> Combine the results.<br>
+							\( -\sqrt{9 - x^2} + 2 \arcsin\left(\frac{x}{3}\right) + C \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
