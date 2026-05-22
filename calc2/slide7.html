@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 5.9 - Hyperbolic Functions: Integration</title>
+
+		<meta
+			name="description"
+			content="Integration of Hyperbolic Functions"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 5.9</h2>
+					<h3 style="font-size: 1.5em;">Hyperbolic Functions</h3>
+					<p><small>Integration Rules and Techniques</small></p>
+				</section>
+
+				<section>
+					<h3>Standard Hyperbolic Integrals</h3>
+					<p style="font-size: 0.75em;">The integration rules for hyperbolic functions mirror standard trigonometric integrals, but with fewer negative signs. Let \( u \) be a differentiable function of \( x \):</p>
+					
+					<div style="display: flex; justify-content: space-around; font-size: 0.7em; background: #222; padding: 15px; border-radius: 8px; margin-top: 15px;">
+						<div>
+							<p style="margin-bottom: 10px;">\( \int \sinh u \, du = \cosh u + C \)</p>
+							<p style="margin-bottom: 10px;">\( \int \cosh u \, du = \sinh u + C \)</p>
+							<p style="margin-bottom: 10px;">\( \int \text{sech}^2 u \, du = \tanh u + C \)</p>
+						</div>
+						<div>
+							<p style="margin-bottom: 10px;">\( \int \text{csch}^2 u \, du = -\coth u + C \)</p>
+							<p style="margin-bottom: 10px;">\( \int \text{sech} u \tanh u \, du = -\text{sech} u + C \)</p>
+							<p style="margin-bottom: 10px;">\( \int \text{csch} u \coth u \, du = -\text{csch} u + C \)</p>
+						</div>
+					</div>
+					<p style="font-size: 0.6em; color: #ffaa00; margin-top: 15px;"><em>Notice: Integrating sinh yields POSITIVE cosh, unlike standard trigonometry where integrating sine yields negative cosine!</em></p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions demonstrating the integration of hyperbolic functions.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Linear Substitution</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \cosh(4x) \, dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let the inner argument be \( u \).<br>
+							\( u = 4x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = 4 \, dx \implies dx = \frac{du}{4} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute and Integrate:</strong><br>
+							\( \int \cosh(u) \left(\frac{du}{4}\right) = \frac{1}{4} \int \cosh(u) \, du \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Rule:</strong><br>
+							\( = \frac{1}{4} \sinh(u) + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \frac{1}{4} \sinh(4x) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Polynomial Argument</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int x \sinh(x^2) \, dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let \( u = x^2 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = 2x \, dx \). We have \( x \, dx \) in our integral, so divide by 2: \( \frac{du}{2} = x \, dx \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute and Integrate:</strong><br>
+							\( \int \sinh(u) \left(\frac{du}{2}\right) = \frac{1}{2} \int \sinh(u) \, du \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Rule:</strong><br>
+							\( = \frac{1}{2} \cosh(u) + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \frac{1}{2} \cosh(x^2) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Rewriting for a Logarithm</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \tanh(x) \, dx \)</p>
+						<p class="fragment" style="color: #88ccff; font-size: 0.6em; margin-bottom: 5px;"><em>There is no standard rule for standalone tanh! Rewrite it using its definition.</em></p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integrand:</strong><br>
+							\( \int \frac{\sinh x}{\cosh x} \, dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let the denominator be \( u \).<br>
+							\( u = \cosh x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = \sinh x \, dx \). Notice that this perfectly matches the numerator!</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute and Integrate:</strong> Use the Log Rule.<br>
+							\( \int \frac{1}{u} \, du = \ln|u| + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \ln(\cosh x) + C \)<br>
+							<small><em>(Note: Absolute value bars can be dropped because cosh(x) is always positive.)</em></small></li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Squared Functions</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \text{sech}^2(3x - 1) \, dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let \( u = 3x - 1 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = 3 \, dx \implies \frac{du}{3} = dx \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute and Integrate:</strong><br>
+							\( \int \text{sech}^2(u) \left(\frac{du}{3}\right) = \frac{1}{3} \int \text{sech}^2(u) \, du \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Rule:</strong><br>
+							\( = \frac{1}{3} \tanh(u) + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \frac{1}{3} \tanh(3x - 1) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Using the Power Rule</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \sinh^3(x) \cosh(x) \, dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify Pattern:</strong> We have a function raised to a power, multiplied by its derivative.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let \( u = \sinh x \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = \cosh x \, dx \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute and Integrate:</strong> Apply the standard polynomial Power Rule.<br>
+							\( \int u^3 \, du = \frac{u^4}{4} + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \frac{1}{4} \sinh^4(x) + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Rational Argument</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int \frac{\text{csch}(1/x) \coth(1/x)}{x^2} \, dx \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite for Clarity:</strong><br>
+							\( \int \text{csch}(x^{-1}) \coth(x^{-1}) \cdot x^{-2} \, dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let \( u = x^{-1} \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find \( du \):</strong><br>
+							\( du = -x^{-2} \, dx \implies -du = x^{-2} \, dx \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute and Integrate:</strong><br>
+							\( \int \text{csch}(u) \coth(u) (-du) = -\int \text{csch}(u) \coth(u) \, du \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Rule:</strong> The integral of \( \text{csch } u \coth u \) is \( -\text{csch } u \).<br>
+							\( = -(-\text{csch } u) + C = \text{csch } u + C \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \text{csch}\left(\frac{1}{x}\right) + C \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
