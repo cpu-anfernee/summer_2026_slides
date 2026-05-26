@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapters 4.3 & 4.5 - Definite Integrals</title>
+
+		<meta
+			name="description"
+			content="Definite Integrals: Properties, Symmetry, Change of Variables, and Absolute Values"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapters 4.3 & 4.5</h2>
+					<h3 style="font-size: 1.5em;">Definite Integrals</h3>
+					<p><small>Properties, Symmetry, Change of Variables, & Absolute Values</small></p>
+				</section>
+
+				<section>
+					<h3>1. Properties of Definite Integrals (Ch 4.3)</h3>
+					<p style="font-size: 0.75em;">These properties allow us to manipulate and break down complex integrals.</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.7em;">
+						<ol>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Zero Interval:</strong> \( \int_a^a f(x) dx = 0 \)</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Reversing Limits:</strong> \( \int_b^a f(x) dx = -\int_a^b f(x) dx \)</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Additive Interval:</strong> \( \int_a^b f(x) dx + \int_b^c f(x) dx = \int_a^c f(x) dx \)</li>
+							<li class="fragment" style="margin-bottom: 10px;"><strong>Constant Multiple:</strong> \( \int_a^b k f(x) dx = k \int_a^b f(x) dx \)</li>
+							<li class="fragment"><strong>Sum/Difference:</strong> \( \int_a^b [f(x) \pm g(x)] dx = \int_a^b f(x) dx \pm \int_a^b g(x) dx \)</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<h3>2. Even and Odd Functions (Ch 4.5)</h3>
+					<p style="font-size: 0.75em;">When integrating over a <strong>symmetric interval</strong> \( [-a, a] \), symmetry provides massive shortcuts.</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p class="fragment" style="margin-bottom: 10px; color: #ffaa00;"><strong>Even Functions (\( y \)-axis symmetry):</strong> \( f(-x) = f(x) \)</p>
+						<p class="fragment" style="margin-bottom: 15px;">\[ \int_{-a}^a f(x) dx = 2 \int_0^a f(x) dx \]</p>
+						
+						<p class="fragment" style="margin-bottom: 10px; color: #88ccff;"><strong>Odd Functions (Origin symmetry):</strong> \( f(-x) = -f(x) \)</p>
+						<p class="fragment">\[ \int_{-a}^a f(x) dx = 0 \]</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>3. Change of Variables (Ch 4.5)</h3>
+					<p style="font-size: 0.75em;">When using \( u \)-substitution on a definite integral, you must <strong>change the limits of integration</strong> to match the new variable \( u \). This prevents the need to substitute \( x \) back in at the end!</p>
+					
+					<div class="fragment" style="border: 2px dashed #fff; padding: 15px; margin-top: 15px; font-size: 0.75em;">
+						<p>If \( u = g(x) \), then:</p>
+						\[ \int_a^b f(g(x))g^{\prime}(x) dx = \int_{g(a)}^{g(b)} f(u) du \]
+						<ul style="margin-top: 10px;">
+							<li>New lower limit: Plug \( a \) into \( u \).</li>
+							<li>New upper limit: Plug \( b \) into \( u \).</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<h3>4. Absolute Value Functions</h3>
+					<p style="font-size: 0.75em;">To integrate an absolute value function, you must split the integral at its "vertex" (the zero-point) using the Additive Interval property.</p>
+					
+					<div class="fragment" style="background: #222; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p>By definition, \( |x| = \begin{cases} -x & \text{for } x < 0 \\ x & \text{for } x \ge 0 \end{cases} \)</p>
+						<br>
+						<p>Example: \( \int_a^b |x - c| dx \) (where \( a < c < b \))</p>
+						\[ = \int_a^c -(x - c) dx + \int_c^b (x - c) dx \]
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions demonstrating these properties and advanced techniques.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Using Properties</h3>
+						<p style="font-size: 0.75em;">Given \( \int_1^3 f(x) dx = 4 \) and \( \int_1^3 g(x) dx = -2 \).</p>
+						<p style="font-size: 0.75em;">Evaluate: \( \int_1^3 [3f(x) - 2g(x)] dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Sum/Difference Rule:</strong> Separate the integral.<br>
+							\( \int_1^3 3f(x) dx - \int_1^3 2g(x) dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Constant Multiple Rule:</strong> Pull constants outside.<br>
+							\( 3\int_1^3 f(x) dx - 2\int_1^3 g(x) dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute Given Values:</strong><br>
+							\( 3(4) - 2(-2) \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify:</strong><br>
+							\( 12 - (-4) \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( 16 \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Odd Function Symmetry</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int_{-2}^2 (x^3 - \sin x) dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Check the Interval:</strong> The interval \( [-2, 2] \) is symmetric about the origin. Symmetry rules might apply!</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Test the Function for Symmetry:</strong> Let \( f(x) = x^3 - \sin x \).<br>
+							Find \( f(-x) \):<br>
+							\( f(-x) = (-x)^3 - \sin(-x) = -x^3 - (-\sin x) = -x^3 + \sin x \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Compare:</strong><br>
+							\( -x^3 + \sin x = -(x^3 - \sin x) = -f(x) \). <br>
+							Because \( f(-x) = -f(x) \), the function is strictly <strong>odd</strong>.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Theorem:</strong> The integral of an odd function over a symmetric interval is exactly zero. The positive area perfectly cancels the negative area.</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( 0 \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Even Function Symmetry</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int_{-\pi/4}^{\pi/4} \cos(x) dx \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Check the Interval:</strong> The interval is symmetric (\( -a \) to \( a \)).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Test the Function:</strong> Let \( f(x) = \cos(x) \).<br>
+							\( f(-x) = \cos(-x) = \cos(x) = f(x) \). <br>
+							The function is <strong>even</strong>.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Theorem:</strong> We can evaluate from \( 0 \) to \( a \) and double it.<br>
+							\( 2 \int_0^{\pi/4} \cos(x) dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( = 2 [\sin(x)]_0^{\pi/4} \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( 2 \left( \sin\left(\frac{\pi}{4}\right) - \sin(0) \right) = 2 \left( \frac{\sqrt{2}}{2} - 0 \right) = \sqrt{2} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Change of Variables</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int_0^1 x(x^2 + 1)^3 dx \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let \( u = x^2 + 1 \), so \( du = 2x dx \implies \frac{du}{2} = x dx \).</li>
+							<li class="fragment" style="margin-bottom: 5px; color: #88ccff;"><strong>Change the Limits:</strong><br>
+							Lower limit: When \( x = 0 \), \( u = (0)^2 + 1 = 1 \).<br>
+							Upper limit: When \( x = 1 \), \( u = (1)^2 + 1 = 2 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Entire Integral in terms of \( u \):</strong><br>
+							\( \int_1^2 u^3 \left(\frac{du}{2}\right) = \frac{1}{2} \int_1^2 u^3 du \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \frac{1}{2} \left[ \frac{u^4}{4} \right]_1^2 = \frac{1}{8} [u^4]_1^2 \)</li>
+							<li class="fragment"><strong>Evaluate (No back-substitution needed!):</strong><br>
+							\( \frac{1}{8} (2^4 - 1^4) = \frac{1}{8}(16 - 1) = \frac{15}{8} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Change of Limits (Logarithmic)</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int_1^e \frac{(\ln x)^2}{x} dx \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up \( u \):</strong> Let \( u = \ln x \), so \( du = \frac{1}{x} dx \).</li>
+							<li class="fragment" style="margin-bottom: 5px; color: #88ccff;"><strong>Change the Limits:</strong><br>
+							Lower limit: When \( x = 1 \), \( u = \ln(1) = 0 \).<br>
+							Upper limit: When \( x = e \), \( u = \ln(e) = 1 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integral in terms of \( u \):</strong><br>
+							\( \int_0^1 u^2 du \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \left[ \frac{u^3}{3} \right]_0^1 \)</li>
+							<li class="fragment"><strong>Evaluate directly:</strong><br>
+							\( \frac{1^3}{3} - \frac{0^3}{3} = \frac{1}{3} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Absolute Value</h3>
+						<p style="font-size: 0.8em;">Evaluate: \( \int_0^4 |x - 3| dx \)</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em; margin-bottom: 5px;"><em>Find where the inside of the absolute value is zero to split the integral!</em></p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Vertex (Zero-point):</strong> \( x - 3 = 0 \implies x = 3 \).<br>
+							Since \( 3 \) is between \( 0 \) and \( 4 \), we split the integral at \( x=3 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Piecewise Definition:</strong><br>
+							For \( x < 3 \), \( |x - 3| = -(x - 3) = -x + 3 \).<br>
+							For \( x > 3 \), \( |x - 3| = (x - 3) = x - 3 \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the New Integrals:</strong><br>
+							\( \int_0^3 (-x + 3) dx + \int_3^4 (x - 3) dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate each piece:</strong><br>
+							\( \left[ -\frac{x^2}{2} + 3x \right]_0^3 + \left[ \frac{x^2}{2} - 3x \right]_3^4 \)</li>
+							<li class="fragment"><strong>Evaluate and Add:</strong><br>
+							Left Piece: \( \left(-\frac{9}{2} + 9\right) - 0 = \frac{9}{2} \)<br>
+							Right Piece: \( \left(\frac{16}{2} - 12\right) - \left(\frac{9}{2} - 9\right) = (8 - 12) - \left(-\frac{9}{2}\right) = -4 + 4.5 = \frac{1}{2} \)<br>
+							<strong>Final Answer:</strong> \( \frac{9}{2} + \frac{1}{2} = \frac{10}{2} = 5 \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

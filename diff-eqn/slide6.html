@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 2.6 - Homogeneous First-Order Equations</title>
+
+		<meta
+			name="description"
+			content="Solving Homogeneous Differential Equations using Substitution"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 2.6</h2>
+					<h3 style="font-size: 1.5em;">Homogeneous Equations</h3>
+					<p><small>Solving First-Order DEs using Substitution</small></p>
+				</section>
+
+				<section>
+					<h3>What is a Homogeneous Equation?</h3>
+					<p style="font-size: 0.8em;">A first-order differential equation is <strong>homogeneous</strong> if it can be written in the form:</p>
+					\[ \frac{dy}{dx} = f(x,y) \]
+					<p style="font-size: 0.8em;">where \( f(x,y) \) can be expressed strictly as a function of the ratio \( \frac{y}{x} \).</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 5px; color: #88ccff;"><strong>The Alternative Test</strong></p>
+						<p style="margin-bottom: 5px;">An equation in differential form \( M(x,y)dx + N(x,y)dy = 0 \) is homogeneous if both \( M \) and \( N \) are homogeneous functions of the same degree. This means:</p>
+						\[ M(tx, ty) = t^n M(x,y) \quad \text{and} \quad N(tx, ty) = t^n N(x,y) \]
+					</div>
+				</section>
+
+				<section>
+					<h3>The Substitution Method</h3>
+					<p style="font-size: 0.75em;">Homogeneous equations are not separable as written, but they can be <em>transformed</em> into separable equations using an algebraic substitution.</p>
+					<div style="background: #222; padding: 15px; border-radius: 8px; font-size: 0.7em; text-align: left;">
+						<ol>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Let \( y = vx \). (This implies that \( v = \frac{y}{x} \)).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Differentiate:</strong> Using the Product Rule, find \( dy \):<br>
+							\[ dy = v \, dx + x \, dv \quad \text{or} \quad \frac{dy}{dx} = v + x\frac{dv}{dx} \]</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Transform:</strong> Replace all instances of \( y \) and \( dy \) in the original equation. The equation will miraculously simplify into a separable equation in terms of \( v \) and \( x \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> Separate the variables \( v \) and \( x \), then integrate both sides.</li>
+							<li class="fragment"><strong>Back-Substitute:</strong> Replace \( v \) with \( \frac{y}{x} \) to state the final solution in terms of the original variables.</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions demonstrating the homogeneous substitution method.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Direct Ratio Format</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} = \frac{x + y}{x} \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Equation:</strong> Split the fraction to reveal the \( y/x \) ratio.<br>
+							\( \frac{dy}{dx} = 1 + \frac{y}{x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Let \( y = vx \), so \( \frac{dy}{dx} = v + x\frac{dv}{dx} \).<br>
+							\( v + x\frac{dv}{dx} = 1 + v \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify and Separate:</strong> The \( v \) terms cancel out!<br>
+							\( x\frac{dv}{dx} = 1 \implies dv = \frac{dx}{x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \int dv = \int \frac{dx}{x} \implies v = \ln|x| + C \)</li>
+							<li class="fragment"><strong>Back-Substitute:</strong> Replace \( v \) with \( y/x \).<br>
+							\( \frac{y}{x} = \ln|x| + C \implies y = x\ln|x| + Cx \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Differential Form</h3>
+						<p style="font-size: 0.8em;">Solve: \( (x^2 + y^2)dx - 2xy \, dy = 0 \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Let \( y = vx \) and \( dy = v\,dx + x\,dv \).<br>
+							\( (x^2 + v^2x^2)dx - 2x(vx)(v\,dx + x\,dv) = 0 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Factor and Simplify:</strong> Divide the entire equation by \( x^2 \).<br>
+							\( (1 + v^2)dx - 2v(v\,dx + x\,dv) = 0 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Distribute and Group \( dx \) and \( dv \):</strong><br>
+							\( dx + v^2dx - 2v^2dx - 2vx\,dv = 0 \)<br>
+							\( (1 - v^2)dx = 2vx\,dv \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Separate Variables:</strong><br>
+							\( \frac{dx}{x} = \frac{2v}{1 - v^2} dv \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> Use \( u \)-substitution on the right (\( u = 1 - v^2 \)).<br>
+							\( \ln|x| = -\ln|1 - v^2| + C_1 \)</li>
+							<li class="fragment"><strong>Back-Substitute and Solve:</strong><br>
+							\( \ln|x| + \ln|1 - v^2| = C_1 \implies \ln|x(1 - v^2)| = C_1 \implies x(1 - v^2) = C \)<br>
+							\( x(1 - \frac{y^2}{x^2}) = C \implies x^2 - y^2 = Cx \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Exponential Homogeneity</h3>
+						<p style="font-size: 0.8em;">Solve: \( x \frac{dy}{dx} = y + x e^{y/x} \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Equation:</strong> Divide by \( x \) to expose the ratio.<br>
+							\( \frac{dy}{dx} = \frac{y}{x} + e^{y/x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> \( \frac{dy}{dx} = v + x\frac{dv}{dx} \)<br>
+							\( v + x\frac{dv}{dx} = v + e^v \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify and Separate:</strong> Subtract \( v \) from both sides.<br>
+							\( x\frac{dv}{dx} = e^v \implies \frac{dv}{e^v} = \frac{dx}{x} \implies e^{-v} dv = \frac{dx}{x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( -e^{-v} = \ln|x| + C \)</li>
+							<li class="fragment"><strong>Back-Substitute:</strong><br>
+							\( -e^{-y/x} = \ln|x| + C \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Rational Degrees</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} = \frac{y^2 + xy}{x^2} \)</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Equation:</strong> Split the fraction.<br>
+							\( \frac{dy}{dx} = \left(\frac{y}{x}\right)^2 + \frac{y}{x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> \( \frac{dy}{dx} = v + x\frac{dv}{dx} \)<br>
+							\( v + x\frac{dv}{dx} = v^2 + v \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify and Separate:</strong> Subtract \( v \).<br>
+							\( x\frac{dv}{dx} = v^2 \implies \frac{dv}{v^2} = \frac{dx}{x} \implies v^{-2} dv = \frac{dx}{x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> Apply the Power Rule.<br>
+							\( -v^{-1} = \ln|x| + C \implies -\frac{1}{v} = \ln|x| + C \)</li>
+							<li class="fragment"><strong>Back-Substitute:</strong> Replace \( v \) with \( y/x \).<br>
+							\( -\frac{x}{y} = \ln|x| + C \implies y = \frac{-x}{\ln|x| + C} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Radical Homogeneity</h3>
+						<p style="font-size: 0.8em;">Solve: \( (y + \sqrt{x^2 + y^2})dx - x \, dy = 0 \), for \( x > 0 \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Let \( y = vx \) and \( dy = v\,dx + x\,dv \).<br>
+							\( (vx + \sqrt{x^2 + v^2x^2})dx - x(v\,dx + x\,dv) = 0 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Factor the Root:</strong> Since \( x > 0 \), \( \sqrt{x^2(1+v^2)} = x\sqrt{1+v^2} \).<br>
+							\( (vx + x\sqrt{1+v^2})dx - xv\,dx - x^2dv = 0 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Divide by \( x \) and Group:</strong><br>
+							\( (v + \sqrt{1+v^2})dx - v\,dx - x\,dv = 0 \)<br>
+							\( \sqrt{1+v^2}dx = x\,dv \implies \frac{dx}{x} = \frac{dv}{\sqrt{1+v^2}} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> The right side is a standard integration formula.<br>
+							\( \ln|x| = \ln|v + \sqrt{1+v^2}| + C_1 \)</li>
+							<li class="fragment"><strong>Back-Substitute:</strong><br>
+							\( \ln|x| = \ln\left|\frac{y}{x} + \sqrt{1 + \frac{y^2}{x^2}}\right| + C_1 \)<br>
+							<small><em>(Can be algebraically simplified further, but this implicit form is acceptable).</em></small></li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Initial Value Problem</h3>
+						<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} = \frac{y}{x} + \frac{x}{y} \), given \( y(1) = 2 \)</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> \( \frac{dy}{dx} = v + x\frac{dv}{dx} \)<br>
+							\( v + x\frac{dv}{dx} = v + \frac{1}{v} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify and Separate:</strong><br>
+							\( x\frac{dv}{dx} = \frac{1}{v} \implies v\,dv = \frac{dx}{x} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \frac{v^2}{2} = \ln|x| + C \implies \frac{y^2}{2x^2} = \ln|x| + C \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>General Solution:</strong> Multiply by \( 2x^2 \).<br>
+							\( y^2 = 2x^2(\ln|x| + C) \)</li>
+							<li class="fragment"><strong>Apply Initial Condition:</strong> Plug in \( x = 1 \) and \( y = 2 \).<br>
+							\( (2)^2 = 2(1)^2(\ln(1) + C) \implies 4 = 2(0 + C) \implies C = 2 \)<br>
+							<strong>Particular Solution:</strong> \( y^2 = 2x^2(\ln|x| + 2) \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

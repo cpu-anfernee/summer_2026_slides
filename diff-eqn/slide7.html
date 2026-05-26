@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Bernoulli's Differential Equations</title>
+
+		<meta
+			name="description"
+			content="Solving Bernoulli's Differential Equations"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Bernoulli's Equation</h2>
+					<h3 style="font-size: 1.2em;">Substitution for Non-Linear Equations</h3>
+				</section>
+
+				<section>
+					<h3>The Bernoulli Form</h3>
+					<p style="font-size: 0.8em;">A Bernoulli differential equation is a non-linear equation of the form:</p>
+					\[ \frac{dy}{dx} + P(x)y = Q(x)y^n \]
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 5px;"><strong>The Transformation Strategy:</strong></p>
+						<ol style="margin-bottom: 0px;">
+							<li class="fragment">Divide the entire equation by \( y^n \).</li>
+							<li class="fragment">Substitute \( v = y^{1-n} \).</li>
+							<li class="fragment">The resulting equation for \( v \) will be <strong>linear</strong>:<br>
+							\[ \frac{dv}{dx} + (1-n)P(x)v = (1-n)Q(x) \]</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
+					<h3>Example 1: \( n=2 \)</h3>
+					<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} + y = xy^2 \)</p>
+					
+					<ol style="font-size: 0.65em;">
+						<li class="fragment"><strong>Divide by \( y^2 \):</strong> \( y^{-2} \frac{dy}{dx} + y^{-1} = x \).</li>
+						<li class="fragment"><strong>Substitute:</strong> Let \( v = y^{-1} \). Then \( \frac{dv}{dx} = -y^{-2} \frac{dy}{dx} \).</li>
+						<li class="fragment"><strong>Transform:</strong> \( -\frac{dv}{dx} + v = x \implies \frac{dv}{dx} - v = -x \).</li>
+						<li class="fragment"><strong>Integrating Factor:</strong> \( \mu(x) = e^{\int -1 dx} = e^{-x} \).</li>
+						<li class="fragment"><strong>Integrate:</strong> \( \frac{d}{dx}[v e^{-x}] = -x e^{-x} \implies v e^{-x} = x e^{-x} + e^{-x} + C \).</li>
+						<li class="fragment"><strong>Back-Substitute:</strong> \( v = x + 1 + Ce^x \). Since \( v = 1/y \):<br>
+						<strong>Final Answer:</strong> \( y = \frac{1}{x + 1 + Ce^x} \)</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Example 2: \( n=3 \)</h3>
+					<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} + y = e^x y^3 \)</p>
+					
+					<ol style="font-size: 0.65em;">
+						<li class="fragment"><strong>Divide by \( y^3 \):</strong> \( y^{-3} \frac{dy}{dx} + y^{-2} = e^x \).</li>
+						<li class="fragment"><strong>Substitute:</strong> \( v = y^{-2} \implies \frac{dv}{dx} = -2y^{-3} \frac{dy}{dx} \).</li>
+						<li class="fragment"><strong>Transform:</strong> \( -\frac{1}{2} \frac{dv}{dx} + v = e^x \implies \frac{dv}{dx} - 2v = -2e^x \).</li>
+						<li class="fragment"><strong>Integrating Factor:</strong> \( \mu(x) = e^{-2x} \).</li>
+						<li class="fragment"><strong>Integrate:</strong> \( v e^{-2x} = \int -2e^{-x} dx = 2e^{-x} + C \).</li>
+						<li class="fragment"><strong>Final Answer:</strong> \( v = 2e^x + Ce^{2x} \implies y = \pm (2e^x + Ce^{2x})^{-1/2} \).</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Example 3: \( n=1/2 \)</h3>
+					<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} + y = y^{1/2} \)</p>
+					
+					<ol style="font-size: 0.65em;">
+						<li class="fragment"><strong>Divide by \( y^{1/2} \):</strong> \( y^{-1/2} \frac{dy}{dx} + y^{1/2} = 1 \).</li>
+						<li class="fragment"><strong>Substitute:</strong> \( v = y^{1/2} \implies \frac{dv}{dx} = \frac{1}{2} y^{-1/2} \frac{dy}{dx} \).</li>
+						<li class="fragment"><strong>Transform:</strong> \( 2\frac{dv}{dx} + v = 1 \implies \frac{dv}{dx} + \frac{1}{2}v = \frac{1}{2} \).</li>
+						<li class="fragment"><strong>Integrating Factor:</strong> \( \mu(x) = e^{\int 0.5 dx} = e^{x/2} \).</li>
+						<li class="fragment"><strong>Integrate:</strong> \( \frac{d}{dx}[v e^{x/2}] = \frac{1}{2}e^{x/2} \implies v e^{x/2} = e^{x/2} + C \).</li>
+						<li class="fragment"><strong>Final Answer:</strong> \( v = 1 + Ce^{-x/2} \implies y = (1 + Ce^{-x/2})^2 \).</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Example 4: Initial Value Problem</h3>
+					<p style="font-size: 0.8em;">Solve: \( \frac{dy}{dx} - y = y^2 \), \( y(0) = 1/2 \)</p>
+					
+					<ol style="font-size: 0.65em;">
+						<li class="fragment"><strong>Divide by \( y^2 \):</strong> \( y^{-2} \frac{dy}{dx} - y^{-1} = 1 \).</li>
+						<li class="fragment"><strong>Substitute:</strong> \( v = y^{-1} \implies \frac{dv}{dx} = -y^{-2} \frac{dy}{dx} \).</li>
+						<li class="fragment"><strong>Transform:</strong> \( -\frac{dv}{dx} - v = 1 \implies \frac{dv}{dx} + v = -1 \).</li>
+						<li class="fragment"><strong>Integrating Factor:</strong> \( \mu(x) = e^x \).</li>
+						<li class="fragment"><strong>Integrate:</strong> \( v e^x = \int -e^x dx = -e^x + C \implies v = -1 + Ce^{-x} \).</li>
+						<li class="fragment"><strong>Apply IVP:</strong> \( y(0) = 1/2 \implies v(0) = 2 \).<br>
+						\( 2 = -1 + C(1) \implies C = 3 \).</li>
+						<li class="fragment"><strong>Final Answer:</strong> \( y = \frac{1}{3e^{-x} - 1} \).</li>
+					</ol>
+				</section>
+
+				<section>
+					<h3>Example 5: Algebraic Case</h3>
+					<p style="font-size: 0.8em;">Solve: \( x \frac{dy}{dx} + y = y^2 \ln x \)</p>
+					
+					<ol style="font-size: 0.65em;">
+						<li class="fragment"><strong>Standard Form:</strong> \( \frac{dy}{dx} + \frac{1}{x} y = \frac{\ln x}{x} y^2 \).</li>
+						<li class="fragment"><strong>Divide by \( y^2 \):</strong> \( y^{-2} \frac{dy}{dx} + \frac{1}{x} y^{-1} = \frac{\ln x}{x} \).</li>
+						<li class="fragment"><strong>Substitute:</strong> \( v = y^{-1} \implies \frac{dv}{dx} = -y^{-2} \frac{dy}{dx} \).</li>
+						<li class="fragment"><strong>Transform:</strong> \( -\frac{dv}{dx} + \frac{1}{x} v = \frac{\ln x}{x} \implies \frac{dv}{dx} - \frac{1}{x} v = -\frac{\ln x}{x} \).</li>
+						<li class="fragment"><strong>Integrating Factor:</strong> \( \mu(x) = e^{-\int 1/x dx} = 1/x \).</li>
+						<li class="fragment"><strong>Integrate:</strong> \( \frac{d}{dx}[v/x] = -\frac{\ln x}{x^2} \implies v/x = \frac{\ln x}{x} + \frac{1}{x} + C \).</li>
+						<li class="fragment"><strong>Final Answer:</strong> \( v = \ln x + 1 + Cx \implies y = \frac{1}{\ln x + 1 + Cx} \).</li>
+					</ol>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
