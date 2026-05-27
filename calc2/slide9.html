@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 4.2 - Area Using Definite Integrals</title>
+
+		<meta
+			name="description"
+			content="Calculating the Area Under a Curve Using Definite Integrals"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 4.2</h2>
+					<h3 style="font-size: 1.5em;">Area Under a Curve</h3>
+					<p><small>Using Definite Integrals to Calculate Area</small></p>
+				</section>
+
+				<section style="overflow-y: auto !important; height: 100%;">
+					<h3>The Definition of Area</h3>
+					<p style="font-size: 0.8em;">If a function \( f \) is continuous and nonnegative (\( f(x) \ge 0 \)) on the closed interval \( [a, b] \), then the area of the region bounded by the graph of \( f \), the \( x \)-axis, and the vertical lines \( x = a \) and \( x = b \) is given by:</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.85em;">
+						\[ \text{Area} = \int_a^b f(x) dx \]
+					</div>
+					
+					<div class="fragment" style="border: 2px dashed #fff; padding: 15px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 5px; color: #ffaa00;"><strong>What if the curve is below the x-axis?</strong></p>
+						<p>If \( f(x) \le 0 \) on \( [a, b] \), the definite integral will yield a <em>negative</em> number. Since geometric area must be positive, the actual area is the absolute value of the integral:</p>
+						\[ \text{Area} = \left| \int_a^b f(x) dx \right| = -\int_a^b f(x) dx \]
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions for calculating bounded areas.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Basic Polynomial Area</h3>
+						<p style="font-size: 0.8em;">Find the area of the region bounded by \( y = x^2 \), the x-axis, and the vertical lines \( x = 0 \) and \( x = 2 \).</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Integral:</strong> The function is nonnegative on \( [0, 2] \).<br>
+							\( \text{Area} = \int_0^2 x^2 dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Antiderivative:</strong> Use the Power Rule.<br>
+							\( \int x^2 dx = \frac{x^3}{3} \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply the Fundamental Theorem of Calculus:</strong> Evaluate from 0 to 2.<br>
+							\( \left[ \frac{x^3}{3} \right]_0^2 = \frac{2^3}{3} - \frac{0^3}{3} \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \text{Area} = \frac{8}{3} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Verifying Geometry</h3>
+						<p style="font-size: 0.8em;">Find the area bounded by \( y = 2x \), the x-axis, \( x = 0 \), and \( x = 3 \).</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Geometric Check:</strong> This region is a right triangle with base \( 3 \) and height \( f(3) = 6 \).<br>
+							\( \text{Geometric Area} = \frac{1}{2} b h = \frac{1}{2}(3)(6) = 9 \). Let's verify with calculus.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Integral:</strong><br>
+							\( \text{Area} = \int_0^3 2x dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \left[ x^2 \right]_0^3 \)</li>
+							<li class="fragment"><strong>Evaluate:</strong><br>
+							\( 3^2 - 0^2 = 9 \). The calculus matches the geometry!</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Area Below the x-axis</h3>
+						<p style="font-size: 0.8em;">Find the area of the region bounded by \( y = x^3 \), the x-axis, \( x = -2 \), and \( x = 0 \).</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Analyze the Region:</strong> On the interval \( [-2, 0] \), the function \( y = x^3 \) is entirely below the x-axis. The integral will be negative.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Integral:</strong><br>
+							\( \int_{-2}^0 x^3 dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong><br>
+							\( \left[ \frac{x^4}{4} \right]_{-2}^0 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate:</strong><br>
+							\( \frac{0^4}{4} - \frac{(-2)^4}{4} = 0 - \frac{16}{4} = -4 \)</li>
+							<li class="fragment"><strong>Find the Area:</strong> Area must be positive.<br>
+							\( \text{Area} = |-4| = 4 \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Crossing the x-axis (Total Area)</h3>
+						<p style="font-size: 0.8em;">Find the <strong>total area</strong> bounded by \( y = x^2 - 4 \), the x-axis, \( x = 0 \), and \( x = 3 \).</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em; margin-bottom: 5px;"><em>Warning: The curve crosses the x-axis at \( x=2 \). We must split the integral!</em></p>
+						
+						<ol style="font-size: 0.6em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Split Integrals:</strong> Part 1 (below x-axis) is \( \). Part 2 (above) is \( \).<br>
+							\( \text{Total Area} = \left| \int_0^2 (x^2 - 4) dx \right| + \int_2^3 (x^2 - 4) dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate Part 1:</strong><br>
+							\( \left[ \frac{x^3}{3} - 4x \right]_0^2 = \left( \frac{8}{3} - 8 \right) - 0 = -\frac{16}{3} \).<br>
+							Area of this piece is \( \left|-\frac{16}{3}\right| = \frac{16}{3} \).</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate Part 2:</strong><br>
+							\( \left[ \frac{x^3}{3} - 4x \right]_2^3 = \left( \frac{27}{3} - 12 \right) - \left( -\frac{16}{3} \right) = -3 + \frac{16}{3} = \frac{7}{3} \).</li>
+							<li class="fragment"><strong>Final Total Area:</strong><br>
+							\( \text{Total Area} = \frac{16}{3} + \frac{7}{3} = \frac{23}{3} \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Trigonometric Area</h3>
+						<p style="font-size: 0.8em;">Find the area of the region bounded by \( y = \sin x \) and the x-axis on the interval \( [0, \pi] \).</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Analyze the Region:</strong> The sine wave is positive from \( 0 \) to \( \pi \), so we can integrate directly.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Integral:</strong><br>
+							\( \text{Area} = \int_0^\pi \sin x dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Antiderivative:</strong><br>
+							\( \left[ -\cos x \right]_0^\pi \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate:</strong><br>
+							\( (-\cos \pi) - (-\cos 0) \)</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( -(-1) - (-1) = 1 + 1 = 2 \)</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Radical Function Area</h3>
+						<p style="font-size: 0.8em;">Find the area of the region bounded by \( y = \sqrt{x} \), the x-axis, \( x = 1 \), and \( x = 4 \).</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Integral:</strong> The square root function is positive on this interval.<br>
+							\( \text{Area} = \int_1^4 x^{1/2} dx \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> Apply the Power Rule.<br>
+							\( \left[ \frac{x^{3/2}}{3/2} \right]_1^4 = \left[ \frac{2}{3}x^{3/2} \right]_1^4 \)</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate the Limits:</strong><br>
+							Upper limit: \( \frac{2}{3}(4^{3/2}) = \frac{2}{3}(\sqrt{4})^3 = \frac{2}{3}(2)^3 = \frac{16}{3} \).<br>
+							Lower limit: \( \frac{2}{3}(1^{3/2}) = \frac{2}{3}(1) = \frac{2}{3} \).</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							\( \text{Area} = \frac{16}{3} - \frac{2}{3} = \frac{14}{3} \)</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
