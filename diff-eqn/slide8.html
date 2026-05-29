@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapters 3.2 & 3.3 - Applications of First-Order DEs</title>
+
+		<meta
+			name="description"
+			content="Exponential Growth, Decay, and Newton's Law of Cooling"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapters 3.2 & 3.3</h2>
+					<h3 style="font-size: 1.5em;">Growth, Decay & Cooling</h3>
+					<p><small>Applications of First-Order Differential Equations</small></p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Part 1: Exponential Growth & Decay</h3>
+						<p style="font-size: 0.8em;">In many natural phenomena, the rate of change of a quantity $P$ is proportional to the amount present at that time.</p>
+						
+						<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.85em;">
+							\[ \frac{dP}{dt} = kP \implies P(t) = P_0 e^{kt} \]
+						</div>
+						
+						<div class="fragment" style="border: 2px dashed #88ccff; padding: 15px; margin-top: 15px; font-size: 0.75em;">
+							<ul style="margin-top: 5px;">
+								<li style="margin-bottom: 5px;"><strong>$P_0$:</strong> The initial amount at time $t = 0$.</li>
+								<li style="margin-bottom: 5px;"><strong>$k > 0$:</strong> Exponential Growth (populations, investments).</li>
+								<li><strong>$k < 0$:</strong> Exponential Decay (radioactive isotopes, drug elimination).</li>
+							</ul>
+						</div>
+						<p><small><em>(Press Down Arrow for Growth/Decay Examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Population Forecasting</h3>
+						<p style="font-size: 0.8em;">A city's population was $10,000$ in the year 2000. In 2010, it was $15,000$. Assuming exponential growth, what will it be in 2030?</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Model:</strong> Let $t=0$ be the year 2000. Therefore, $P_0 = 10000$.<br>
+							$P(t) = 10000 e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Growth Rate ($k$):</strong> Use the data for 2010 ($t=10$).<br>
+							$15000 = 10000 e^{10k} \implies 1.5 = e^{10k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $k$:</strong><br>
+							$\ln(1.5) = 10k \implies k = \frac{\ln 1.5}{10} \approx 0.0405$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Predict for 2030 ($t=30$):</strong><br>
+							$P(30) = 10000 e^{30k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate (Algebra Shortcut!):</strong> Since $e^{10k} = 1.5$, then $e^{30k} = (e^{10k})^3 = (1.5)^3$.<br>
+							$P(30) = 10000(1.5)^3 = 10000(3.375)$</li>
+							<li class="fragment"><strong>Final Answer:</strong> $33,750$ people.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Bacterial Doubling Time</h3>
+						<p style="font-size: 0.8em;">A bacteria culture doubles every 3 hours. If there are $100$ bacteria initially, how many will there be after 15 hours?</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Use the Doubling Time Formula:</strong> $T = \frac{\ln 2}{k}$.<br>
+							$3 = \frac{\ln 2}{k} \implies k = \frac{\ln 2}{3}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Write the Specific Equation:</strong><br>
+							$P(t) = 100 e^{(\frac{\ln 2}{3})t}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate at $t = 15$:</strong><br>
+							$P(15) = 100 e^{(\frac{\ln 2}{3})15} = 100 e^{5 \ln 2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify using Log Rules:</strong> $e^{5 \ln 2} = e^{\ln(2^5)} = 2^5 = 32$.</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$P(15) = 100(32) = 3,200$ bacteria.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Radioactive Half-Life</h3>
+						<p style="font-size: 0.8em;">Carbon-14 has a half-life of 5,730 years. Find the exact decay constant $k$.</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Condition:</strong> At $t = 5730$, the amount remaining is $0.5 P_0$.<br>
+							$0.5 P_0 = P_0 e^{5730k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Divide by $P_0$:</strong><br>
+							$0.5 = e^{5730k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Take the Natural Log:</strong><br>
+							$\ln(0.5) = 5730k$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $k$:</strong><br>
+							$k = \frac{\ln(0.5)}{5730}$</li>
+							<li class="fragment"><strong>Final Answer:</strong> Since $\ln(0.5) = -\ln 2$, we write:<br>
+							$k = \frac{-\ln 2}{5730} \approx -0.000121$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Carbon Dating</h3>
+						<p style="font-size: 0.8em;">A fossil bone contains 20% of its original Carbon-14. How old is the fossil? (Use $k = \frac{-\ln 2}{5730}$).</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Equation:</strong> We are looking for $t$ when $P(t) = 0.20 P_0$.<br>
+							$0.20 P_0 = P_0 e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Isolate the Exponential:</strong><br>
+							$0.20 = e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Take the Natural Log:</strong><br>
+							$\ln(0.20) = kt$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute $k$ and Solve for $t$:</strong><br>
+							$t = \frac{\ln(0.20)}{k} = \frac{\ln(0.20)}{-\ln 2 / 5730}$</li>
+							<li class="fragment"><strong>Final Answer (approximate):</strong><br>
+							$t = -5730 \frac{\ln(0.2)}{\ln 2} \approx 13,304$ years old.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Drug Elimination</h3>
+						<p style="font-size: 0.8em;">A drug is eliminated from the bloodstream exponentially. $50$ mg are injected. After 2 hours, $30$ mg remain. Find the half-life.</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Decay Constant ($k$):</strong> $P_0 = 50$, $P(2) = 30$.<br>
+							$30 = 50 e^{2k} \implies 0.6 = e^{2k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $k$:</strong><br>
+							$\ln(0.6) = 2k \implies k = \frac{\ln 0.6}{2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Use the Half-Life Formula:</strong><br>
+							$T = \frac{-\ln 2}{k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute $k$:</strong><br>
+							$T = \frac{-\ln 2}{(\ln 0.6)/2} = \frac{-2 \ln 2}{\ln 0.6}$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$T \approx \frac{-1.386}{-0.5108} \approx 2.71$ hours.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Targeting a Specific Multiplier</h3>
+						<p style="font-size: 0.8em;">A population grows at a continuous rate of 5% per year ($k = 0.05$). How long will it take for the population to triple?</p>
+						
+						<ol style="font-size: 0.7em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Equation:</strong> We want $P(t) = 3P_0$.<br>
+							$3P_0 = P_0 e^{0.05t}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Divide by $P_0$:</strong><br>
+							$3 = e^{0.05t}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Take the Natural Log:</strong><br>
+							$\ln(3) = 0.05t$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $t$:</strong><br>
+							$t = \frac{\ln 3}{0.05} = 20 \ln 3$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$t \approx 21.97$ years.</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section style="overflow-y: auto !important; height: 100%;">
+						<h3>Part 2: Newton's Law of Cooling</h3>
+						<p style="font-size: 0.8em;">The rate at which an object cools (or warms) is proportional to the difference between its temperature $T$ and the ambient temperature $T_m$ of its surrounding medium.</p>
+						
+						<div class="fragment" style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.85em;">
+							\[ \frac{dT}{dt} = k(T - T_m) \]
+						</div>
+						
+						<div class="fragment" style="border: 2px dashed #ffaa00; padding: 15px; margin-top: 15px; font-size: 0.75em;">
+							<p style="margin-bottom: 5px; color: #ffaa00;"><strong>The Solution</strong></p>
+							<p>By separating variables ($\frac{dT}{T - T_m} = k dt$) and integrating, we get:</p>
+							\[ T(t) = T_m + (T_0 - T_m)e^{kt} \]
+							<p style="margin-top: 5px;"><small>Where $T_0$ is the initial temperature of the object. Note that $k < 0$ for both heating and cooling in this standard form.</small></p>
+						</div>
+						<p><small><em>(Press Down Arrow for Cooling/Warming Examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 7: Basic Cooling</h3>
+						<p style="font-size: 0.8em;">A cup of coffee cools from $90^\circ$C to $70^\circ$C in 10 minutes in a $20^\circ$C room. Find its temperature at 20 minutes.</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify Constants:</strong> $T_m = 20$, $T_0 = 90$.<br>
+							$T(t) = 20 + (90 - 20)e^{kt} = 20 + 70e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find the Cooling Constant ($k$):</strong> Use $T(10) = 70$.<br>
+							$70 = 20 + 70e^{10k} \implies 50 = 70e^{10k} \implies e^{10k} = \frac{5}{7}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up for $t=20$:</strong><br>
+							$T(20) = 20 + 70e^{20k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate (Algebra Shortcut):</strong> Notice that $e^{20k} = (e^{10k})^2$.<br>
+							$e^{20k} = \left(\frac{5}{7}\right)^2 = \frac{25}{49}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Calculate:</strong><br>
+							$T(20) = 20 + 70\left(\frac{25}{49}\right) = 20 + 10\left(\frac{25}{7}\right) = 20 + \frac{250}{7}$</li>
+							<li class="fragment"><strong>Final Answer:</strong> $20 + 35.71 = 55.71^\circ$C.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 8: Time of Death (Forensics)</h3>
+						<p style="font-size: 0.8em;">A body is found at $85^\circ$F in a $70^\circ$F room. 1 hour later, it is $80^\circ$F. Assuming a normal living temp of $98.6^\circ$F, how long before discovery did they die?</p>
+						
+						<ol style="font-size: 0.6em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Model:</strong> Let $t=0$ be the time of discovery. $T_m = 70$, $T_0 = 85$.<br>
+							$T(t) = 70 + 15e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find $k$:</strong> At $t = 1$ hour, $T = 80$.<br>
+							$80 = 70 + 15e^{k} \implies 10 = 15e^k \implies e^k = \frac{2}{3} \implies k = \ln(2/3) \approx -0.4055$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find Time of Death ($t$):</strong> We want $t$ (which will be negative) when $T = 98.6$.<br>
+							$98.6 = 70 + 15e^{kt} \implies 28.6 = 15e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $t$:</strong><br>
+							$e^{kt} = \frac{28.6}{15} \approx 1.9067 \implies kt = \ln(1.9067)$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Calculate:</strong> $t = \frac{\ln(1.9067)}{\ln(2/3)} \approx \frac{0.6454}{-0.4055} \approx -1.59$</li>
+							<li class="fragment"><strong>Final Answer:</strong> The person died approximately $1.59$ hours (about 1 hr 35 mins) before the body was discovered.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 9: Newton's Law of Warming</h3>
+						<p style="font-size: 0.8em;">A pizza at $20^\circ$C is placed in a $200^\circ$C oven. After 5 minutes, it is $100^\circ$C. When will it reach $150^\circ$C?</p>
+						<p class="fragment" style="color: #66ff66; font-size: 0.6em; margin-bottom: 5px;"><em>The exact same formula applies, the coefficients will just be negative!</em></p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify Constants:</strong> $T_m = 200$, $T_0 = 20$.<br>
+							$T(t) = 200 + (20 - 200)e^{kt} = 200 - 180e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Find $k$:</strong> At $t = 5$, $T = 100$.<br>
+							$100 = 200 - 180e^{5k} \implies -100 = -180e^{5k} \implies e^{5k} = \frac{5}{9}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up for $T = 150$:</strong><br>
+							$150 = 200 - 180e^{kt} \implies -50 = -180e^{kt} \implies e^{kt} = \frac{5}{18}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $t$:</strong><br>
+							$kt = \ln(5/18) \implies t = \frac{\ln(5/18)}{k}$. Since $k = \frac{\ln(5/9)}{5}$, we have $t = \frac{5 \ln(5/18)}{\ln(5/9)}$.</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$t \approx \frac{5(-1.2809)}{-0.5878} \approx 10.89$ minutes.</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 10: Extreme Cooling</h3>
+						<p style="font-size: 0.8em;">A $1000^\circ$C metal bar is placed in a $0^\circ$C bath. It cools to $500^\circ$C in 2 minutes. When will it be $100^\circ$C?</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify Constants:</strong> $T_m = 0$, $T_0 = 1000$.<br>
+							$T(t) = 0 + (1000 - 0)e^{kt} = 1000e^{kt}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Notice the Half-Life:</strong> It went from $1000^\circ$ to $500^\circ$ (half the temp) in 2 minutes. The half-life is 2 mins!<br>
+							$k = \frac{-\ln 2}{2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up for $T = 100$:</strong><br>
+							$100 = 1000e^{kt} \implies e^{kt} = 0.1$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for $t$:</strong><br>
+							$kt = \ln(0.1) \implies t = \frac{\ln(0.1)}{k}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute $k$:</strong><br>
+							$t = \frac{\ln(10^{-1})}{-\ln 2 / 2} = \frac{-\ln 10}{-\ln 2 / 2} = 2 \frac{\ln 10}{\ln 2}$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$t \approx 2(3.32) = 6.64$ minutes.</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
