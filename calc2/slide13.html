@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 8.4 - Trigonometric Substitution</title>
+
+		<meta
+			name="description"
+			content="Integration using Trigonometric Substitution"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 8.4</h2>
+					<h3 style="font-size: 1.5em;">Trigonometric Substitution</h3>
+					<p><small>Transforming Algebraic Integrals into Trigonometric Integrals</small></p>
+				</section>
+
+				<section>
+					<h3>The Three Substitutions $(a > 0)$</h3>
+					<p style="font-size: 0.8em;">The objective with trigonometric substitution is to eliminate the radical in the integrand by using Pythagorean identities.</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.7em;">
+						<p class="fragment" style="margin-bottom: 10px; color: #88ccff;"><strong>1. Pattern: $\sqrt{a^2 - u^2}$</strong></p>
+						<ul class="fragment" style="margin-bottom: 10px;">
+							<li><strong>Substitute:</strong> $u = a \sin \theta$ for $-\pi/2 \le \theta \le \pi/2$</li>
+							<li><strong>Identity:</strong> $1 - \sin^2\theta = \cos^2\theta \implies \sqrt{a^2 - u^2} = a \cos \theta$</li>
+						</ul>
+						
+						<p class="fragment" style="margin-bottom: 10px; color: #ffaa00;"><strong>2. Pattern: $\sqrt{a^2 + u^2}$</strong></p>
+						<ul class="fragment" style="margin-bottom: 10px;">
+							<li><strong>Substitute:</strong> $u = a \tan \theta$ for $-\pi/2 < \theta < \pi/2$</li>
+							<li><strong>Identity:</strong> $1 + \tan^2\theta = \sec^2\theta \implies \sqrt{a^2 + u^2} = a \sec \theta$</li>
+						</ul>
+						
+						<p class="fragment" style="margin-bottom: 10px; color: #66ff66;"><strong>3. Pattern: $\sqrt{u^2 - a^2}$</strong></p>
+						<ul class="fragment">
+							<li><strong>Substitute:</strong> $u = a \sec \theta$</li>
+							<li><strong>Identity:</strong> $\sec^2\theta - 1 = \tan^2\theta \implies \sqrt{u^2 - a^2} = \pm a \tan \theta$</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions demonstrating trigonometric substitutions from the textbook.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Sine Substitution</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{dx}{x^2 \sqrt{9 - x^2}}$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Identify and Substitute:</strong> Pattern is $\sqrt{a^2 - x^2}$ with $a = 3$.<br>
+							Let $x = 3 \sin \theta$. Then $dx = 3 \cos \theta \, d\theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify the Radical:</strong> $\sqrt{9 - 9\sin^2\theta} = \sqrt{9\cos^2\theta} = 3 \cos \theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integral:</strong><br>
+							$\int \frac{3 \cos \theta \, d\theta}{(3 \sin \theta)^2 (3 \cos \theta)} = \int \frac{3 \cos \theta}{(9 \sin^2 \theta)(3 \cos \theta)} \, d\theta$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate:</strong> Cancel common factors.<br>
+							$= \frac{1}{9} \int \frac{1}{\sin^2 \theta} \, d\theta = \frac{1}{9} \int \csc^2 \theta \, d\theta = -\frac{1}{9} \cot \theta + C$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Reference Triangle:</strong> Since $\sin \theta = \frac{x}{3} = \frac{\text{Opp}}{\text{Hyp}}$.<br>
+							The adjacent side is $\sqrt{9 - x^2}$.<br>
+							Therefore, $\cot \theta = \frac{\text{Adj}}{\text{Opp}} = \frac{\sqrt{9 - x^2}}{x}$.</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$-\frac{\sqrt{9 - x^2}}{9x} + C$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Converting Limits of Integration</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_{\sqrt{3}}^{2} \frac{\sqrt{x^2 - 3}}{x} \, dx$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Pattern is $\sqrt{u^2 - a^2}$ with $u=x$, $a = \sqrt{3}$.<br>
+							Let $x = \sqrt{3} \sec \theta$. Then $dx = \sqrt{3} \sec \theta \tan \theta \, d\theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify Radical:</strong> $\sqrt{3\sec^2\theta - 3} = \sqrt{3\tan^2\theta} = \sqrt{3} \tan \theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px; color: #ffaa00;"><strong>Convert Limits:</strong> Use $x = \sqrt{3} \sec \theta \implies \sec \theta = \frac{x}{\sqrt{3}}$.<br>
+							Lower limit: $x = \sqrt{3} \implies \sec \theta = 1 \implies \theta = 0$.<br>
+							Upper limit: $x = 2 \implies \sec \theta = \frac{2}{\sqrt{3}} \implies \theta = \frac{\pi}{6}$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite and Integrate:</strong><br>
+							$\int_{0}^{\pi/6} \frac{\sqrt{3} \tan \theta}{\sqrt{3} \sec \theta} (\sqrt{3} \sec \theta \tan \theta) \, d\theta = \sqrt{3} \int_{0}^{\pi/6} \tan^2 \theta \, d\theta$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Use Identity $\tan^2\theta = \sec^2\theta - 1$:</strong><br>
+							$= \sqrt{3} \int_{0}^{\pi/6} (\sec^2 \theta - 1) \, d\theta = \sqrt{3} [\tan \theta - \theta]_0^{\pi/6}$</li>
+							<li class="fragment"><strong>Final Answer:</strong> Evaluate at the new limits.<br>
+							$= \sqrt{3} \left( \frac{1}{\sqrt{3}} - \frac{\pi}{6} \right) - (0) = 1 - \frac{\sqrt{3}\pi}{6}$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Application to Arc Length</h3>
+						<p style="font-size: 0.8em;">Find the arc length of the graph of $f(x) = \frac{1}{2}x^2$ from $x=0$ to $x=1$.</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Integral:</strong> $s = \int_{0}^{1} \sqrt{1 + [f'(x)]^2} \, dx$.<br>
+							Since $f'(x) = x$, we have $s = \int_{0}^{1} \sqrt{1 + x^2} \, dx$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Let $x = \tan \theta \implies dx = \sec^2 \theta \, d\theta$.<br>
+							Radical becomes: $\sqrt{1 + \tan^2\theta} = \sec \theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Convert Limits:</strong> <br>
+							Lower: $x = 0 \implies \tan \theta = 0 \implies \theta = 0$.<br>
+							Upper: $x = 1 \implies \tan \theta = 1 \implies \theta = \pi/4$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite and Integrate:</strong><br>
+							$\int_{0}^{\pi/4} (\sec \theta)(\sec^2 \theta) \, d\theta = \int_{0}^{\pi/4} \sec^3 \theta \, d\theta$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate:</strong> Using the established formula for $\int \sec^3 \theta \, d\theta$:<br>
+							$= \frac{1}{2} [\sec \theta \tan \theta + \ln|\sec \theta + \tan \theta|]_0^{\pi/4}$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$= \frac{1}{2} [\sqrt{2}(1) + \ln(\sqrt{2} + 1)] - \frac{1}{2}[0 + \ln(1)] = \frac{1}{2} [\sqrt{2} + \ln(\sqrt{2} + 1)]$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Completing the Square</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \sqrt{x^2 - 2x} \, dx$</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em; margin-bottom: 5px;"><em>If the expression under the radical is a quadratic with a linear term, complete the square first!</em></p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Complete the Square:</strong><br>
+							$x^2 - 2x = (x^2 - 2x + 1) - 1 = (x - 1)^2 - 1$.<br>
+							The integral becomes $\int \sqrt{(x - 1)^2 - 1} \, dx$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Substitute:</strong> Pattern is $\sqrt{u^2 - a^2}$ with $u = (x - 1)$ and $a = 1$.<br>
+							Let $x - 1 = \sec \theta \implies dx = \sec \theta \tan \theta \, d\theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Simplify Radical:</strong> $\sqrt{\sec^2\theta - 1} = \tan \theta$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite and Integrate:</strong><br>
+							$\int (\tan \theta)(\sec \theta \tan \theta) \, d\theta = \int \tan^2 \theta \sec \theta \, d\theta = \int (\sec^2 \theta - 1)\sec \theta \, d\theta$<br>
+							$= \int \sec^3 \theta \, d\theta - \int \sec \theta \, d\theta$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Formulas:</strong><br>
+							$= \frac{1}{2}(\sec \theta \tan \theta + \ln|\sec \theta + \tan \theta|) - \ln|\sec \theta + \tan \theta| + C$<br>
+							$= \frac{1}{2}\sec \theta \tan \theta - \frac{1}{2}\ln|\sec \theta + \tan \theta| + C$</li>
+							<li class="fragment"><strong>Final Answer (Using Triangle):</strong><br>
+							$= \frac{1}{2}(x - 1)\sqrt{x^2 - 2x} - \frac{1}{2}\ln|x - 1 + \sqrt{x^2 - 2x}| + C$</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>

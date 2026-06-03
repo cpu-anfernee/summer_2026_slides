@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapter 8.5 - Partial Fractions</title>
+
+		<meta
+			name="description"
+			content="Integration of Rational Functions by Partial Fractions"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapter 8.5</h2>
+					<h3 style="font-size: 1.5em;">Partial Fractions</h3>
+					<p><small>Integration of Rational Functions</small></p>
+				</section>
+
+				<section>
+					<h3>The Method of Partial Fractions</h3>
+					<p style="font-size: 0.8em;">Partial fraction decomposition allows us to break down complex rational functions $f(x) = \frac{P(x)}{Q(x)}$ into a sum of simpler fractions that are easy to integrate.</p>
+					
+					<div class="fragment" style="border: 2px dashed #ffaa00; padding: 15px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 5px; color: #ffaa00;"><strong>Step 1: Proper vs. Improper</strong></p>
+						<p>If the degree of the numerator $P(x)$ is <strong>greater than or equal to</strong> the degree of the denominator $Q(x)$, the fraction is improper. You <strong>must</strong> use polynomial long division first!</p>
+						\[ \frac{P(x)}{Q(x)} = \text{Quotient} + \frac{\text{Remainder}}{Q(x)} \]
+					</div>
+				</section>
+
+				<section>
+					<h3>The Four Denominator Cases</h3>
+					<p style="font-size: 0.75em;">Factor the denominator $Q(x)$ completely. The factors dictate the form of the decomposition.</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.65em;">
+						<p class="fragment" style="margin-bottom: 10px; color: #88ccff;"><strong>Case 1: Distinct Linear Factors</strong></p>
+						<p class="fragment" style="margin-bottom: 10px;">For each factor $(ax+b)$, add a term: $\frac{A}{ax+b}$</p>
+						
+						<p class="fragment" style="margin-bottom: 10px; color: #66ff66;"><strong>Case 2: Repeated Linear Factors</strong></p>
+						<p class="fragment" style="margin-bottom: 10px;">For $(ax+b)^k$, add $k$ terms: $\frac{A_1}{ax+b} + \frac{A_2}{(ax+b)^2} + \dots + \frac{A_k}{(ax+b)^k}$</p>
+						
+						<p class="fragment" style="margin-bottom: 10px; color: #ffaa00;"><strong>Case 3: Distinct Irreducible Quadratic Factors</strong></p>
+						<p class="fragment" style="margin-bottom: 10px;">For each factor $(ax^2+bx+c)$, add a term: $\frac{Ax+B}{ax^2+bx+c}$</p>
+						
+						<p class="fragment" style="margin-bottom: 10px; color: #ff6666;"><strong>Case 4: Repeated Irreducible Quadratic Factors</strong></p>
+						<p class="fragment">For $(ax^2+bx+c)^k$, add $k$ terms: $\frac{A_1x+B_1}{ax^2+bx+c} + \frac{A_2x+B_2}{(ax^2+bx+c)^2} + \dots$</p>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides contain step-by-step solutions for integrating rational functions.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Distinct Linear Factors</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{1}{x^2 - 5x + 6} dx$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Factor the Denominator:</strong><br>
+							$x^2 - 5x + 6 = (x - 2)(x - 3)$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Decomposition:</strong><br>
+							$\frac{1}{(x - 2)(x - 3)} = \frac{A}{x - 2} + \frac{B}{x - 3}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Clear Denominators (Basic Equation):</strong><br>
+							$1 = A(x - 3) + B(x - 2)$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for A and B (Heaviside Cover-Up):</strong><br>
+							Let $x = 3 \implies 1 = A(0) + B(1) \implies B = 1$<br>
+							Let $x = 2 \implies 1 = A(-1) + B(0) \implies A = -1$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite and Integrate:</strong><br>
+							$\int \left( \frac{-1}{x - 2} + \frac{1}{x - 3} \right) dx$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$-\ln|x - 2| + \ln|x - 3| + C = \ln\left|\frac{x - 3}{x - 2}\right| + C$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Repeated Linear Factors</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{5x^2 + 20x + 6}{x(x + 1)^2} dx$</p>
+						
+						<ol style="font-size: 0.60em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Decomposition:</strong> Since $(x+1)$ is squared, it gets two terms.<br>
+							$\frac{5x^2 + 20x + 6}{x(x + 1)^2} = \frac{A}{x} + \frac{B}{x + 1} + \frac{C}{(x + 1)^2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Clear Denominators:</strong><br>
+							$5x^2 + 20x + 6 = A(x + 1)^2 + Bx(x + 1) + Cx$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for Constants:</strong><br>
+							Let $x = 0 \implies 6 = A(1)^2 \implies A = 6$<br>
+							Let $x = -1 \implies 5(-1)^2 + 20(-1) + 6 = C(-1) \implies -9 = -C \implies C = 9$<br>
+							To find $B$, pick any other $x$, say $x = 1$:<br>
+							$5(1) + 20(1) + 6 = 6(2)^2 + B(1)(2) + 9(1) \implies 31 = 24 + 2B + 9 \implies 2B = -2 \implies B = -1$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite and Integrate:</strong><br>
+							$\int \left( \frac{6}{x} - \frac{1}{x + 1} + \frac{9}{(x + 1)^2} \right) dx$</li>
+							<li class="fragment"><strong>Final Answer:</strong> Note the Power Rule for the third term!<br>
+							$6\ln|x| - \ln|x + 1| - \frac{9}{x + 1} + C$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Irreducible Quadratic</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{2x^2 - x + 4}{x(x^2 + 4)} dx$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Decomposition:</strong> $x^2+4$ cannot be factored.<br>
+							$\frac{2x^2 - x + 4}{x(x^2 + 4)} = \frac{A}{x} + \frac{Bx + C}{x^2 + 4}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Clear Denominators:</strong><br>
+							$2x^2 - x + 4 = A(x^2 + 4) + (Bx + C)x = (A + B)x^2 + Cx + 4A$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Equate Coefficients:</strong><br>
+							Constants: $4 = 4A \implies A = 1$<br>
+							$x$ terms: $-1 = C \implies C = -1$<br>
+							$x^2$ terms: $2 = A + B \implies 2 = 1 + B \implies B = 1$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integral:</strong><br>
+							$\int \left( \frac{1}{x} + \frac{x - 1}{x^2 + 4} \right) dx = \int \frac{1}{x} dx + \int \frac{x}{x^2 + 4} dx - \int \frac{1}{x^2 + 4} dx$</li>
+							<li class="fragment"><strong>Final Answer:</strong> Use u-sub for the middle term, arctan for the last term.<br>
+							$\ln|x| + \frac{1}{2}\ln(x^2 + 4) - \frac{1}{2}\arctan\left(\frac{x}{2}\right) + C$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Improper Rational Function</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{x^3 + x}{x - 1} dx$</p>
+						<p class="fragment" style="color: #ffaa00; font-size: 0.6em; margin-bottom: 5px;"><em>The degree of the numerator (3) is greater than the denominator (1). We must divide first!</em></p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Polynomial Long Division:</strong> Divide $(x^3 + x)$ by $(x - 1)$.<br>
+							Quotient: $x^2 + x + 2$<br>
+							Remainder: $2$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integrand:</strong><br>
+							$\frac{x^3 + x}{x - 1} = x^2 + x + 2 + \frac{2}{x - 1}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the New Integral:</strong><br>
+							$\int \left( x^2 + x + 2 + \frac{2}{x - 1} \right) dx$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate Term by Term:</strong><br>
+							The first three terms use the Power Rule. The last term is a natural logarithm.</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{x^3}{3} + \frac{x^2}{2} + 2x + 2\ln|x - 1| + C$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Deriving a Standard Formula</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{dx}{x^2 - a^2}$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Factor the Denominator:</strong><br>
+							$x^2 - a^2 = (x - a)(x + a)$.</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Decomposition:</strong><br>
+							$\frac{1}{(x - a)(x + a)} = \frac{A}{x - a} + \frac{B}{x + a}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Clear Denominators:</strong><br>
+							$1 = A(x + a) + B(x - a)$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for A and B:</strong><br>
+							Let $x = a \implies 1 = A(2a) \implies A = \frac{1}{2a}$<br>
+							Let $x = -a \implies 1 = B(-2a) \implies B = -\frac{1}{2a}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite and Integrate:</strong><br>
+							$\frac{1}{2a} \int \left( \frac{1}{x - a} - \frac{1}{x + a} \right) dx$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{1}{2a} \ln|x - a| - \frac{1}{2a} \ln|x + a| + C = \frac{1}{2a} \ln\left|\frac{x - a}{x + a}\right| + C$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: A Complex Setup</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int \frac{x^2 + 1}{(x - 3)(x - 2)^2} dx$</p>
+						
+						<ol style="font-size: 0.60em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Set up the Decomposition:</strong><br>
+							$\frac{x^2 + 1}{(x - 3)(x - 2)^2} = \frac{A}{x - 3} + \frac{B}{x - 2} + \frac{C}{(x - 2)^2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Clear Denominators:</strong><br>
+							$x^2 + 1 = A(x - 2)^2 + B(x - 3)(x - 2) + C(x - 3)$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Solve for Constants:</strong><br>
+							Let $x = 3 \implies 10 = A(1)^2 \implies A = 10$<br>
+							Let $x = 2 \implies 5 = C(-1) \implies C = -5$<br>
+							Let $x = 0 \implies 1 = 10(4) + B(-3)(-2) - 5(-3) \implies 1 = 40 + 6B + 15 \implies 6B = -54 \implies B = -9$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Rewrite the Integral:</strong><br>
+							$\int \left( \frac{10}{x - 3} - \frac{9}{x - 2} - \frac{5}{(x - 2)^2} \right) dx$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$10\ln|x - 3| - 9\ln|x - 2| + \frac{5}{x - 2} + C$</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
