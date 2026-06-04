@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Chapters 14.2 & 14.6 - Multiple Integrals: Basic Evaluations</title>
+
+		<meta
+			name="description"
+			content="Basic Evaluation of Iterated Double and Triple Integrals"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<link rel="stylesheet" href="../dist/reset.css" />
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+		
+		<style>
+			.reveal p, .reveal li { font-size: 0.9em; }
+			.reveal h3 { font-size: 1.3em; margin-bottom: 10px; }
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h2>Chapters 14.2 & 14.6</h2>
+					<h3 style="font-size: 1.5em;">Multiple Integrals</h3>
+					<p><small>Basic Evaluation of Iterated Integrals</small></p>
+				</section>
+
+				<section style="overflow-y: auto !important; height: 100%;">
+					<h3>Evaluating Iterated Integrals</h3>
+					<p style="font-size: 0.8em;">The fundamental rule for evaluating multiple integrals is to work from the <strong>inside out</strong>. Treat the variables of the outer integrals as constants while integrating the inner differential.</p>
+					
+					<div style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 10px; color: #88ccff;"><strong>Double Integrals</strong></p>
+						<p style="margin-bottom: 10px;">Evaluate the inner integral with respect to $y$ (treating $x$ as a constant), then evaluate the result with respect to $x$.</p>
+						\[ \int_a^b \left[ \int_{g_1(x)}^{g_2(x)} f(x,y) dy \right] dx \]
+					</div>
+					
+					<div class="fragment" style="background: #222; padding: 10px; border-radius: 8px; margin-top: 15px; font-size: 0.75em;">
+						<p style="margin-bottom: 10px; color: #66ff66;"><strong>Triple Integrals</strong></p>
+						<p style="margin-bottom: 10px;">Evaluate with respect to $z$ first, then $y$, and finally $x$. The outermost limits must always be constants.</p>
+						\[ \int_a^b \int_{g_1(x)}^{g_2(x)} \left[ \int_{h_1(x,y)}^{h_2(x,y)} f(x,y,z) dz \right] dy dx \]
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Examples</h3>
+						<p>The following slides demonstrate the pure algebraic evaluation of double and triple integrals.</p>
+						<p><small><em>(Press Down Arrow to view the examples)</em></small></p>
+					</section>
+
+					<section>
+						<h3>Example 1: Double Integral (Constants)</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_0^2 \int_1^3 (x^2 y) dy dx$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate the Inner Integral (w.r.t $y$):</strong> Treat $x^2$ as a constant multiplier.<br>
+							$\int_1^3 (x^2 y) dy = \left[ x^2 \frac{y^2}{2} \right]_1^3$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Inner Limits:</strong><br>
+							$= x^2 \left( \frac{3^2}{2} - \frac{1^2}{2} \right) = x^2 \left( \frac{9}{2} - \frac{1}{2} \right) = x^2 \left( \frac{8}{2} \right) = 4x^2$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate the Outer Integral (w.r.t $x$):</strong><br>
+							$\int_0^2 4x^2 dx = \left[ \frac{4x^3}{3} \right]_0^2$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Outer Limits:</strong><br>
+							$= \frac{4(2)^3}{3} - 0 = \frac{32}{3}$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{32}{3}$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 2: Double Integral (Variables)</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_0^2 \int_0^x (4 - x - y) dy dx$</p>
+						
+						<ol style="font-size: 0.60em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Inner Integral (w.r.t $y$):</strong> Treat $4$ and $x$ as constants.<br>
+							$\int_0^x (4 - x - y) dy = \left[ 4y - xy - \frac{y^2}{2} \right]_0^x$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Inner Limits:</strong> Substitute $x$ in for $y$.<br>
+							$= \left( 4(x) - x(x) - \frac{x^2}{2} \right) - 0 = 4x - x^2 - \frac{x^2}{2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Combine Terms:</strong><br>
+							$= 4x - \frac{3x^2}{2}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Outer Integral (w.r.t $x$):</strong><br>
+							$\int_0^2 \left( 4x - \frac{3x^2}{2} \right) dx = \left[ 2x^2 - \frac{x^3}{2} \right]_0^2$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Outer Limits:</strong><br>
+							$= \left( 2(4) - \frac{8}{2} \right) - 0 = 8 - 4 = 4$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$4$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 3: Trigonometric Limits</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_0^{\pi} \int_0^{\sin x} y \, dy dx$</p>
+						
+						<ol style="font-size: 0.60em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Inner Integral (w.r.t $y$):</strong><br>
+							$\int_0^{\sin x} y \, dy = \left[ \frac{y^2}{2} \right]_0^{\sin x}$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Inner Limits:</strong><br>
+							$= \frac{(\sin x)^2}{2} - 0 = \frac{1}{2} \sin^2 x$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Outer Integral (w.r.t $x$):</strong> Use the half-angle identity $\sin^2 x = \frac{1 - \cos(2x)}{2}$.<br>
+							$\int_0^\pi \frac{1}{2} \sin^2 x \, dx = \frac{1}{2} \int_0^\pi \frac{1 - \cos(2x)}{2} dx = \frac{1}{4} \int_0^\pi (1 - \cos(2x)) dx$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Integrate and Evaluate:</strong><br>
+							$= \frac{1}{4} \left[ x - \frac{1}{2}\sin(2x) \right]_0^\pi$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Outer Limits:</strong><br>
+							$= \frac{1}{4} \left( (\pi - 0) - (0 - 0) \right)$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{\pi}{4}$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 4: Triple Integral (Constants)</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_0^1 \int_0^2 \int_0^3 (x y z) dz dy dx$</p>
+						
+						<ol style="font-size: 0.65em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Inner Integral (w.r.t $z$):</strong> Treat $xy$ as a constant.<br>
+							$\int_0^3 (x y z) dz = \left[ xy \frac{z^2}{2} \right]_0^3 = xy \left(\frac{9}{2}\right) = \frac{9}{2}xy$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Middle Integral (w.r.t $y$):</strong> Treat $x$ as a constant.<br>
+							$\int_0^2 \frac{9}{2}xy dy = \left[ \frac{9}{2}x \frac{y^2}{2} \right]_0^2 = \frac{9}{4}x(4) = 9x$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Outer Integral (w.r.t $x$):</strong><br>
+							$\int_0^1 9x dx = \left[ \frac{9x^2}{2} \right]_0^1$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate:</strong><br>
+							$\frac{9(1)^2}{2} - 0 = \frac{9}{2}$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{9}{2}$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 5: Triple Integral (Variables)</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_0^1 \int_0^x \int_0^{x+y} 2z \, dz dy dx$</p>
+						
+						<ol style="font-size: 0.60em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Inner Integral (w.r.t $z$):</strong><br>
+							$\int_0^{x+y} 2z \, dz = \left[ z^2 \right]_0^{x+y} = (x+y)^2 - 0$<br>
+							Expand: $x^2 + 2xy + y^2$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Middle Integral (w.r.t $y$):</strong> Integrate the expanded polynomial.<br>
+							$\int_0^x (x^2 + 2xy + y^2) dy = \left[ x^2y + x(y^2) + \frac{y^3}{3} \right]_0^x$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Middle Limits:</strong> Substitute $x$ for $y$.<br>
+							$= (x^2(x) + x(x^2) + \frac{x^3}{3}) - 0 = x^3 + x^3 + \frac{x^3}{3} = \frac{7}{3}x^3$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Outer Integral (w.r.t $x$):</strong><br>
+							$\int_0^1 \frac{7}{3}x^3 dx = \left[ \frac{7}{12}x^4 \right]_0^1$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{7}{12}$</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>Example 6: Evaluating from Inside Out</h3>
+						<p style="font-size: 0.8em;">Evaluate: $\int_0^1 \int_0^z \int_0^y 12x \, dx dy dz$</p>
+						
+						<ol style="font-size: 0.55em;">
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Inner Integral (w.r.t $x$):</strong><br>
+							$\int_0^y 12x \, dx = \left[ 6x^2 \right]_0^y = 6y^2$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Middle Integral (w.r.t $y$):</strong><br>
+							$\int_0^z 6y^2 \, dy = \left[ 2y^3 \right]_0^z$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Apply Middle Limits:</strong> Substitute $z$ for $y$.<br>
+							$= 2z^3 - 0 = 2z^3$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Outer Integral (w.r.t $z$):</strong><br>
+							$\int_0^1 2z^3 \, dz = \left[ \frac{1}{2}z^4 \right]_0^1$</li>
+							<li class="fragment" style="margin-bottom: 5px;"><strong>Evaluate:</strong><br>
+							$= \frac{1}{2}(1)^4 - 0$</li>
+							<li class="fragment"><strong>Final Answer:</strong><br>
+							$\frac{1}{2}$</li>
+						</ol>
+					</section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../dist/plugin/math.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				plugins: [ RevealMath.MathJax2 ]
+			});
+		</script>
+	</body>
+</html>
